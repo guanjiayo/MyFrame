@@ -1,0 +1,24 @@
+package xmx.zs.baseframe;
+
+import android.app.Application;
+
+/*
+ * @创建者     默小铭
+ * @博客       http://blog.csdn.net/u012792686
+ * @创建时间   2017/5/11
+ * @本类描述	  全局Application类
+ * @内容说明   1.第三SDK初始化
+ *             2.部分工具类初始化(Toast,dp转换,需要上下文之类的)
+ *             3.主题背景,Activity管理类等等
+ *             4.捕获app全局异常
+ *             5.监听广播
+ * @补充内容    如果工具类过多,可以写一个Global类用于初始化工具类以减少Appkication类的代码量
+ *
+ * ---------------------------------     
+ * @更新时间   
+ * @新增内容   
+ *
+ */
+
+public class MainApplication extends Application {
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<TextView android:id="@+id/tv_item"
+          xmlns:android="http://schemas.android.com/apk/res/android"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:drawablePadding="10dp"
+          android:gravity="center"
+          android:padding="10dp"
+          android:textColor="#f42b2b"
+          android:text="左侧菜单的Item"
+          android:textSize="24sp"
+    />
+

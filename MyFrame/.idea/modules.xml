@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/MyFrame.iml" filepath="$PROJECT_DIR$/MyFrame.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/base-adapter-library/base-adapter-library.iml" filepath="$PROJECT_DIR$/base-adapter-library/base-adapter-library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baseframe/baseframe.iml" filepath="$PROJECT_DIR$/baseframe/baseframe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bjframe/bjframe.iml" filepath="$PROJECT_DIR$/bjframe/bjframe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/testpro/testpro.iml" filepath="$PROJECT_DIR$/testpro/testpro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zhnews/zhnews.iml" filepath="$PROJECT_DIR$/zhnews/zhnews.iml" />
+    </modules>
+  </component>
+</project>

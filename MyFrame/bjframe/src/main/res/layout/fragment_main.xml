@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <!--ViewPager-->
+    <xmx.zs.bjframe.view.NoScrollViewPager
+        android:id="@+id/vp_mainfragment_pages"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        />
+
+
+    <!--RadioGroup LinearLayout 的子类-->
+    <RadioGroup
+        android:id="@+id/rg_radios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@mipmap/bottom_tab_bg"
+        android:orientation="horizontal"
+        >
+
+        <RadioButton
+            android:id="@+id/rb_home"
+            style="@style/radioButton_style"
+
+            android:drawableTop="@drawable/firstpage_tag_selector"
+            android:text="首页"/>
+
+        <RadioButton
+            android:id="@+id/rb_news"
+            style="@style/radioButton_style"
+
+            android:drawableTop="@drawable/newspage_tag_selector"
+            android:text="新闻"/>
+
+        <RadioButton
+            android:id="@+id/rb_smartservice"
+            style="@style/radioButton_style"
+            android:drawableTop="@drawable/smartservice_tag_selector"
+            android:text="服务"/>
+
+        <RadioButton
+            android:id="@+id/rb_govaffiar"
+            style="@style/radioButton_style"
+            android:drawableTop="@drawable/govaffairs_tag_selector"
+            android:text="资讯"/>
+
+        <RadioButton
+            android:id="@+id/rb_settingcenter"
+            style="@style/radioButton_style"
+            android:drawableTop="@drawable/settingcenter_tag_selector"
+            android:text="设置"/>
+
+    </RadioGroup>
+</LinearLayout>
