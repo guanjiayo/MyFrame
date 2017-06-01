@@ -30,7 +30,8 @@ import xmx.zs.baseframe.utils.ToastUtils;
  *            9.软键盘管理
  *
  * ---------------------------------     
- * @新增内容
+ * @新增内容  //TODO 加上设置页面(清楚缓存,夜间模式之类)
+ *           //TODO 加上登陆注册页面
  *
  */
 public abstract class BaseActivity extends AppCompatActivity {

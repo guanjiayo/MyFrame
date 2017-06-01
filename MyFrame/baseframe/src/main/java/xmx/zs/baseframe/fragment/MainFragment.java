@@ -1,6 +1,7 @@
 package xmx.zs.baseframe.fragment;
 
 import android.view.View;
+import android.widget.TextView;
 
 import xmx.zs.baseframe.R;
 import xmx.zs.baseframe.base.BaseFragment;
@@ -21,9 +22,15 @@ public class MainFragment extends BaseFragment {
 
 
     @Override
-    protected View initView() {
+    protected View initLayout() {
         View rootView = View.inflate(mContext, R.layout.fragment_main, null);
         return rootView;
+    }
+
+    @Override
+    protected void initView(View view) {
+        TextView tv = (TextView) view.findViewById(R.id.textView);
+        tv.setText("MainFragment");
     }
 
     /**

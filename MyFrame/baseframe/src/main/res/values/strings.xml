@@ -4,4 +4,5 @@
     <string name="navigation_drawer_close" translatable="false">open drawer</string>
     <string name="open">open</string>
     <string name="close">close</string>
+    <string name="MainFragment">MainFragment</string>
 </resources>

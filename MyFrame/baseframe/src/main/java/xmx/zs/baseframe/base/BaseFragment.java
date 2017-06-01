@@ -12,13 +12,12 @@ import android.view.ViewGroup;
  * @博客       http://blog.csdn.net/u012792686
  * @创建时间   2016/11/1 20:11
  * @本类描述	  Fragment 基类
- * @内容说明
- * @补充内容  1.添加/移除Fragment
+ * @内容说明  Fragment管理交由依赖的Activity管理
+ *           //TODO Fragment的增删该操作协议个工具类FragmentUtils操作
+ * @补充内容
  *
  * ---------------------------------     
- * @新增内容  //TODO 需要修改,Fragment用ADD方式添加,性能更优,onViewCreate initView
- *           //TODO 用数组管理Fragment,参考BaseFraagment2,修改
- *           //TODO Fragment添加使用add,多个Fragment的时候,先hide所有Fragment,再add默认的,其他Fragment当点击到才add(集合管理所有Fragment),当全部都add过,hide/show形式展示
+ * @新增内容
  *
  */
 public abstract class BaseFragment extends Fragment {
@@ -34,33 +33,38 @@ public abstract class BaseFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
+    /**
+     * Fragment中,用onCreateView()拿到布局xml
+     *
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle
             savedInstanceState) {
         //让子类覆盖
-        return initView();
+        return initLayout();
     }
 
-    protected abstract View initView();
-
+    protected abstract View initLayout();
 
     /**
-     * 跳转到新的Fragment
-     * 说白了也是fragment的replace方法
+     * Fragment中,onViewCreated()初始化View对象
+     *
+     * @param view
+     * @param savedInstanceState
      */
-    protected void toOtherFragment(int layoutID, BaseFragment fragment) {
-        if (null != fragment) {
-            mContext.addFragment(layoutID, fragment);
-        }
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initView(view);
     }
 
-    /**
-     * 移除fragment
-     */
-    protected void removeFragment() {
-        mContext.removeFragment();
-    }
+    protected abstract void initView(View view);
+
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {

@@ -1,12 +1,14 @@
 package xmx.zs.baseframe.base;
 
 import android.graphics.Color;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.Toolbar;
 
 import xmx.zs.baseframe.R;
-import xmx.zs.baseframe.fragment.MainFragment;
 import xmx.zs.baseframe.utils.ActivityManager;
+import xmx.zs.baseframe.utils.FragmentFactory;
 
 
 /*
@@ -15,13 +17,13 @@ import xmx.zs.baseframe.utils.ActivityManager;
  * @创建时间   2016/11/2 0:18
  * @本类描述	  Fragment 管理类
  * @内容说明   1.单Activity继承BaseActivity
- *            2.单Activity+多Fragment用HomeActivity
+ *            2.单Activity+多Fragment用HomeActivity管理Fragment
  *
  *
  * @本类功能
  *
  * ---------------------------------     
- * @新增内容 //TODO 写到最外层,叫MainActivity
+ * @新增内容
  *
  */
 public class HomeActivity extends BaseActivity {
@@ -29,7 +31,7 @@ public class HomeActivity extends BaseActivity {
     private   long                                   mPreClickTime;
     protected android.support.v4.app.FragmentManager fragmentManager;
     private   Toolbar                                mToolbar;
-
+    private int[] titleId = {R.string.MainFragment};
 
     @Override
     protected int getContentViewId() {
@@ -47,27 +49,40 @@ public class HomeActivity extends BaseActivity {
         mToolbar.setSubtitle("Subtitle");
         mToolbar.setSubtitleTextColor(Color.rgb(0, 30, 0));
 
+        initFragment();
+    }
+
+    @Override
+    protected void initData() {
 
     }
 
     /**
-     * 处理Fragment替换
+     * 清空数组里所有的Fragment,防止Fragment重叠问题
      * <p>
-     * addFragment(...)
+     * 再设置初始化时显示的Fragment
+     * <p>
+     * 然后在子Fragment里使用fragment.isAdded()方法判断Fragment是否已经添加到Activity
+     * true:显示Fragment
+     * false:添加Fragment
      */
-    @Override
-    protected void initData() {
-
-        //避免重复添加Fragment
-        if (null == getSupportFragmentManager().getFragments()) {
-            BaseFragment mainFragment = MainFragment.newInstance();
-            if (mainFragment!=null) {
-                addFragment(R.id.fl_main, mainFragment);
+    private void initFragment() {
+        //清空数组里所有的Fragment,防止Fragment重叠问题
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        for (int i = 0; i < titleId.length; i++) { //遍历所有Fragment
+            Fragment fragment = fragmentManager.findFragmentByTag(i + "");
+            if (fragment != null) { //有fragment才清空
+                fragmentTransaction.remove(fragment);
             }
         }
+        fragmentTransaction.commit();
+        //设置初始化时显示的Fragment
+        getSupportFragmentManager().beginTransaction().add(R.id.fl_main, FragmentFactory.getFragment(0), "0").commit();
 
 
     }
+
 
     /**
      * DrawerLayout 开关事件
@@ -79,24 +94,6 @@ public class HomeActivity extends BaseActivity {
 
     }
 
-    /**
-     * @param layoutID 要替换的 FrameLayout
-     * @param fragment
-     */
-    public void addFragment(int layoutID, BaseFragment fragment) {
-        if (fragment != null) {
-            //1.获取管理器
-            fragmentManager = getSupportFragmentManager();
-            //2.开始事务
-            fragmentManager.beginTransaction()//
-                    //3.操作事务
-                    .replace(layoutID, fragment, fragment.getClass().getSimpleName())//参数(资源ID,fragment类,TAG)  TAG可以自定义
-                    .addToBackStack(fragment.getClass().getSimpleName())//把Fragment添加到栈
-                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE) //设置跳转动画
-                    //提交事务
-                    .commitAllowingStateLoss();//
-        }
-    }
 
     /**
      * 后面用来处理Fragment事件的
@@ -146,7 +143,7 @@ public class HomeActivity extends BaseActivity {
    /* */
 
     /**
-     * 如果同时要显示两种Fragment 用这个
+     * 如果同时要显示两种Fragment 用这个(类似SlideMenu 类型)
      *//*
     @Override
     public void onBackPressed() {
@@ -180,6 +177,7 @@ public class HomeActivity extends BaseActivity {
                 } else {
 
                     ActivityManager.getInstance().AppExit(this);
+
                 }
             }
 
@@ -189,8 +187,5 @@ public class HomeActivity extends BaseActivity {
 
     }
 
-    @Override
-    public void showToast(String msg) {
-        super.showToast(msg);
-    }
+
 }
