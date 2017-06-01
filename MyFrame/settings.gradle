@@ -1,1 +1,1 @@
-include ':app', ':base-adapter-library', ':zhnews', ':baseframe', ':bjframe', ':testpro'
+include ':app', ':base-adapter-library', ':zhnews', ':baseframe', ':bjframe', ':testpro', ':prefenence'
