@@ -11,8 +11,8 @@ import android.app.Application;
  *             2.部分工具类初始化(Toast,dp转换,需要上下文之类的)
  *             3.主题背景,Activity管理类等等
  *             4.捕获app全局异常
- *             5.监听广播
- * @补充内容    如果工具类过多,可以写一个Global类用于初始化工具类以减少Appkication类的代码量
+ *
+ * @补充内容    如果工具类过多,可以写一个Global类用于初始化工具类以减少Application类的代码量
  *
  * ---------------------------------     
  * @更新时间   
@@ -21,4 +21,10 @@ import android.app.Application;
  */
 
 public class MainApplication extends Application {
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+    }
+
 }

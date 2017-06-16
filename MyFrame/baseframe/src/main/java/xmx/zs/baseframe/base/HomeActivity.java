@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.Toolbar;
 
 import xmx.zs.baseframe.R;
-import xmx.zs.baseframe.utils.ActivityManager;
 import xmx.zs.baseframe.utils.FragmentFactory;
 
 
@@ -27,15 +26,15 @@ import xmx.zs.baseframe.utils.FragmentFactory;
  *
  */
 public class HomeActivity extends BaseActivity {
-    //点击时间
-    private   long                                   mPreClickTime;
+
     protected android.support.v4.app.FragmentManager fragmentManager;
     private   Toolbar                                mToolbar;
     private int[] titleId = {R.string.MainFragment};
 
+
+
     @Override
-    protected int getContentViewId() {
-        //主页面的布局
+    protected int setContentViewId() {
         return R.layout.activity_home;
     }
 
@@ -88,12 +87,9 @@ public class HomeActivity extends BaseActivity {
      * DrawerLayout 开关事件
      */
     @Override
-    protected void initEvent() {
-        super.initEvent();
-
-
+    protected void initListener() {
+        super.initListener();
     }
-
 
     /**
      * 后面用来处理Fragment事件的
@@ -136,53 +132,6 @@ public class HomeActivity extends BaseActivity {
             fragmentManager.popBackStack();
         } else {
             finish();
-        }
-
-    }
-
-   /* */
-
-    /**
-     * 如果同时要显示两种Fragment 用这个(类似SlideMenu 类型)
-     *//*
-    @Override
-    public void onBackPressed() {
-        if (fragmentManager.getBackStackEntryCount() == 2) {
-            //TODO 要改成Fragment依赖的Activity
-            if (this instanceof HomeActivity) {
-                if (System.currentTimeMillis() - mPreClickTime > 2000) {// 两次点击的间隔大于2s中
-                    showToast("再按一次,退出APP");
-                    mPreClickTime = System.currentTimeMillis();
-                    return;
-                } else {
-
-                    ActivityManager.getInstance().AppExit(this);
-                }
-            }
-
-        } else {
-            removeFragment("LeftFragment");
-        }
-
-    }*/
-    @Override
-    public void onBackPressed() {
-        if (fragmentManager.getBackStackEntryCount() == 1) {
-            //TODO 要改成Fragment依赖的Activity
-            if (this instanceof HomeActivity) {
-                if (System.currentTimeMillis() - mPreClickTime > 2000) {// 两次点击的间隔大于2s中
-                    showToast("再按一次,退出APP");
-                    mPreClickTime = System.currentTimeMillis();
-                    return;
-                } else {
-
-                    ActivityManager.getInstance().AppExit(this);
-
-                }
-            }
-
-        } else {
-            removeFragment();
         }
 
     }

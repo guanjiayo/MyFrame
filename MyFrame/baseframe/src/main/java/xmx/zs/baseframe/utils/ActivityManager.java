@@ -13,8 +13,35 @@ import java.util.Stack;
  * @内容说明   主要用于项目Activity的管理(增删)
  * @补充内容   要先将Activity添加到栈,不然栈会报空对象异常
  */
+
+/**
+ * 使用:
+ * <p>
+ * 如果我们要更加方便的是用这个管理类，
+ * 推荐创建一个Activity的基类，并在onCreate和onDestory方法里面调用对应的方法，
+ * 这样我们就不需要单独在某个Activity里面添加重复逻辑，精简代码，比如像下面这样
+ * <p>
+ * /**
+ * 对context进行初始化，并将当前的Activity加入到堆栈中，便于管理
+ *
+ * @Override
+ * protected void onCreate(Bundle savedInstanceState){
+ * super.onCreate(savedInstanceState);
+ * <p>
+ * // 添加Activity到堆栈
+ * AppManager.getAppManager().addActivity(this);
+ * <p>
+ * }
+ * @Override
+ * protected void onDestroy(){
+ * super.onDestroy();
+ * // 结束Activity&从堆栈中移除
+ * AppManager.getAppManager().finishActivity(this);
+ * }
+ */
+
 public class ActivityManager {
-    public static Stack<Activity> activityStack;
+    public static  Stack<Activity> activityStack;
     private static ActivityManager instance;
 
 

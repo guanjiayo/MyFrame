@@ -10,7 +10,7 @@ import android.support.v7.app.AppCompatActivity;
  * @创建时间   2016/11/1 22:18
  * @本类描述	  Activity跳转界面工具类
  * @内容说明   Activity之间跳转,以及跳转动画
- * @补充内容
+ * @补充内容  //TODO 不能用,改
  *
  * ---------------------------------     
  * @新增内容
