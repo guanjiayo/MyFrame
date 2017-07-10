@@ -9,7 +9,9 @@
       <module fileurl="file://$PROJECT_DIR$/bjframe/bjframe.iml" filepath="$PROJECT_DIR$/bjframe/bjframe.iml" />
       <module fileurl="file://$PROJECT_DIR$/expand_edittext/expand_edittext.iml" filepath="$PROJECT_DIR$/expand_edittext/expand_edittext.iml" />
       <module fileurl="file://$PROJECT_DIR$/label_demo/label_demo.iml" filepath="$PROJECT_DIR$/label_demo/label_demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/netframe/netframe.iml" filepath="$PROJECT_DIR$/netframe/netframe.iml" />
       <module fileurl="file://$PROJECT_DIR$/prefenence/prefenence.iml" filepath="$PROJECT_DIR$/prefenence/prefenence.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rxretrofitlibrary/rxretrofitlibrary.iml" filepath="$PROJECT_DIR$/rxretrofitlibrary/rxretrofitlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/testpro/testpro.iml" filepath="$PROJECT_DIR$/testpro/testpro.iml" />
       <module fileurl="file://$PROJECT_DIR$/zhnews/zhnews.iml" filepath="$PROJECT_DIR$/zhnews/zhnews.iml" />
     </modules>

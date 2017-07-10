@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <TextView
+        android:id="@+id/tv_netStata"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#797575"
+        android:gravity="center"
+        android:text="@string/tv_data"
+        android:textColor="#f00"
+        android:textSize="20sp"
+        android:translationZ="1dp"
+        android:visibility="gone"
+        />
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_get"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/get"/>
+
+        <Button
+            android:id="@+id/btn_post"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/post"/>
+
+        <Button
+            android:id="@+id/btn_https"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/https"/>
+
+        <Button
+            android:id="@+id/btn_upload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/upload"/>
+
+        <Button
+            android:id="@+id/btn_download"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/download"/>
+
+        <com.daimajia.numberprogressbar.NumberProgressBar
+            android:id="@+id/number_progress_bar"
+            xmlns:custom="http://schemas.android.com/apk/res-auto"
+            custom:progress_text_size="20sp"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_data"
+                android:textSize="20sp"
+                />
+        </ScrollView>
+    </LinearLayout>
+
+
+</RelativeLayout>

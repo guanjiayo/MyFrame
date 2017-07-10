@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_down_laod"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:id="@+id/tv_netStata"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#797575"
+        android:gravity="center"
+        android:text="@string/tv_data"
+        android:textColor="#f00"
+        android:textSize="20sp"
+        android:translationZ="1dp"
+        android:visibility="gone"
+        />
+
+    <com.jude.easyrecyclerview.EasyRecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    </com.jude.easyrecyclerview.EasyRecyclerView>
+</LinearLayout>

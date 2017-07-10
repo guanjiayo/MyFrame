@@ -1,1 +1,1 @@
-include ':app', ':base-adapter-library', ':zhnews', ':baseframe', ':bjframe', ':testpro', ':prefenence', ':label_demo', ':expand_edittext'
+include ':app', ':base-adapter-library', ':zhnews', ':baseframe', ':bjframe', ':testpro', ':prefenence', ':label_demo', ':expand_edittext', ':netframe', ':rxretrofitlibrary'
