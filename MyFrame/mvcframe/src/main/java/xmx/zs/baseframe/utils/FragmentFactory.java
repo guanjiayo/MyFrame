@@ -15,7 +15,7 @@ package xmx.zs.baseframe.utils;
 
 
 import xmx.zs.baseframe.base.BaseFragment;
-import xmx.zs.baseframe.fragment.MainFragment;
+import xmx.zs.baseframe.view.fragment.MainFragment;
 
 public class FragmentFactory {
     private static MainFragment mMainFragment;

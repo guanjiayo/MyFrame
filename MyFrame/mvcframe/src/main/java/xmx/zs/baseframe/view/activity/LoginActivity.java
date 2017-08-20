@@ -1,4 +1,4 @@
-package xmx.zs.baseframe.activity;
+package xmx.zs.baseframe.view.activity;
 
 import android.content.Intent;
 import android.support.design.widget.TextInputLayout;

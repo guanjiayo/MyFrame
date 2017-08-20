@@ -26,6 +26,10 @@ public class MyApplication extends Application {
         context=this;
     }
 
+    /**
+     * 全局上下文
+     * @return context
+     */
     public static Context getContext() {
         return context;
     }

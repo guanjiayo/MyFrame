@@ -1,6 +1,7 @@
 package xmx.zs.baseframe;
 
 import android.app.Application;
+import android.content.Context;
 
 /*
  * @创建者     默小铭
@@ -21,10 +22,20 @@ import android.app.Application;
  */
 
 public class MainApplication extends Application {
+    private static Context context;
+
     @Override
     public void onCreate() {
         super.onCreate();
+        context=this;
+    }
 
+    /**
+     * 全局上下文
+     * @return context
+     */
+    public static Context getContext() {
+        return context;
     }
 
 }

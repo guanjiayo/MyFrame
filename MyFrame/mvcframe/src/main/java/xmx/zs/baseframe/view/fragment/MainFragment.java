@@ -1,4 +1,4 @@
-package xmx.zs.baseframe.fragment;
+package xmx.zs.baseframe.view.fragment;
 
 import android.view.View;
 import android.widget.TextView;

@@ -13,7 +13,7 @@ import android.view.ViewGroup;
  * @创建时间   2016/11/1 20:11
  * @本类描述	  Fragment 基类
  * @内容说明  Fragment管理交由依赖的Activity管理
- *           //TODO Fragment的增删该操作协议个工具类FragmentUtils操作
+ *           //TODO Fragment的增删该操作写一个工具类FragmentUtils操作
  * @补充内容
  *
  * ---------------------------------     
