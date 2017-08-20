@@ -3,15 +3,15 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.butterknife'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"] as int
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
 
     defaultConfig {
         applicationId "zs.xmx"
-        minSdkVersion 15
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.android["minSdkVersion"] as int
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"] as int
+        versionCode rootProject.ext.android["versionCode"] as int
+        versionName rootProject.ext.android["versionName"]
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -29,19 +29,19 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:26.+'
+    compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
     testCompile 'junit:junit:4.12'
     //dragger2
-    compile 'com.google.dagger:dagger:2.11'
+    compile rootProject.ext.dependencies["dragger2"]
     //使用apt插件为dagger2生成代码
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
+    annotationProcessor rootProject.ext.dependencies["dragger2-apt"]
     //添加ButterKnife
-    compile 'com.jakewharton:butterknife:8.7.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.7.0'
+    compile "com.jakewharton:butterknife:$rootProject.butterknifeVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknifeVersion"
     //Retrofit2
-    compile 'com.squareup.retrofit2:retrofit:2.3.0'
-    compile 'com.google.code.gson:gson:2.8.1'
-    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+    compile rootProject.ext.dependencies["retrofit"]
+    compile rootProject.ext.dependencies["retrofit-gson"]
+    compile rootProject.ext.dependencies["gson"]
     //OrmLite 数据库工具
-    compile 'com.j256.ormlite:ormlite-android:5.0'
+    compile rootProject.ext.dependencies["ormlite"]
 }

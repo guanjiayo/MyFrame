@@ -8,20 +8,34 @@ ext {
                versionCode      : 1,
                versionName      : "1.0"]
 
-    //Dependencies  TODO 尝试将这里相同的版本号,定义变量的方式赋值
-    dependencies = ["support-v7"            : 'com.android.support:appcompat-v7:26.0.0-alpha1',
-                    "design"                : 'com.android.support:design:26.0.0-alpha1',
-                    "rx_android"            : 'io.reactivex:rxandroid:1.0.1',
-                    "rx_binding"            : 'com.jakewharton.rxbinding:rxbinding:0.2.0',
-                    "retrofit"              : 'com.squareup.retrofit2:retrofit:2.0.0-beta3',
-                    "retrofit_adapter"      : 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta3',
-                    "constraint-layout"     : 'com.android.support.constraint:constraint-layout:1.0.0-beta1',
-                    "bottom-navigation-bar" : 'com.ashokvarma.android:bottom-navigation-bar:1.3.0']
-
     //support library version
     supportLibraryVersion = '26.0.0-alpha1'
 
     //butterknife version
-    butterknifeVersion = '8.5.1'
+    butterknifeVersion = '8.7.0'
+
+    //dragger2 version
+    dragger2Version='2.11'
+
+    //retrofit version
+    retrofitVersion='2.3.0'
+
+    //Dependencies
+    dependencies = ["support-v7"            : "com.android.support:appcompat-v7:$supportLibraryVersion",
+                    "design"                : "com.android.support:design:$supportLibraryVersion",
+                    "rx_android"            : 'io.reactivex:rxandroid:1.0.1',
+                    "rx_binding"            : 'com.jakewharton.rxbinding:rxbinding:0.2.0',
+                    "retrofit"              : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+                    "retrofit_adapter"      : "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion",
+                    "retrofit-gson"         : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+                    "constraint-layout"     : 'com.android.support.constraint:constraint-layout:1.0.0-beta1',
+                    "bottom-navigation-bar" : 'com.ashokvarma.android:bottom-navigation-bar:1.3.0',
+                    "dragger2"              : "com.google.dagger:dagger:$dragger2Version",
+                    "dragger2-apt"          : "com.google.dagger:dagger-compiler:$dragger2Version",
+                    "gson"                  : 'com.google.code.gson:gson:2.8.1',
+                    "ormlite"               : 'com.j256.ormlite:ormlite-android:5.0'
+    ]
+
+
 
 }
