@@ -28,9 +28,14 @@ public class MyApplication extends Application {
 
     /**
      * 全局上下文
+     * <p>
+     * 使用: Application.getAPPContext()
+     * <p>
+     * 避免部分不能使用getApplicationContext()的情况
+     *
      * @return context
      */
-    public static Context getContext() {
+    public static Context getAPPContext() {
         return context;
     }
 }

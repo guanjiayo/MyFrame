@@ -9,16 +9,16 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".activity.SplashActivity">
+        <activity android:name="xmx.zs.bjframe.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".base.HomeActivity"/>
-        <activity android:name=".activity.GuideActivity"/>
-        <activity android:name=".activity.TwoActivity"/>
+        <activity android:name="xmx.zs.bjframe.base.HomeActivity"/>
+        <activity android:name="xmx.zs.bjframe.activity.GuideActivity"/>
+        <activity android:name="xmx.zs.bjframe.activity.TwoActivity"/>
     </application>
 
 </manifest>
