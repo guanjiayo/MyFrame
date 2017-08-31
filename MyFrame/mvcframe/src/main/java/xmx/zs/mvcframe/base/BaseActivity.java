@@ -73,7 +73,7 @@ public abstract class BaseActivity extends AppCompatActivity implements NetWorkR
         StatusBar.setStatusBarColor(this, Color.BLUE);
         initView();
         initData();
-        initListener();
+        initEvent();
         registerReceiver();
     }
 
@@ -129,10 +129,15 @@ public abstract class BaseActivity extends AppCompatActivity implements NetWorkR
     }
 
     /**
+     * 绑定要设置点击事件的组件,让子类覆盖此方法来完成事件的处理
+     * <p>
+     * 如果使用了View注解框架,可以不重写
+     */
+    protected abstract void initEvent();
+
+    /**
      * 让子类覆盖此方法来完成事件的处理
      */
-    protected abstract void initListener();
-
     @Override
     public void onClick(View v) {
 

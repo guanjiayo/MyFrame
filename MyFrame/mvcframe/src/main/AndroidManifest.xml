@@ -25,6 +25,7 @@
         </activity>
         <activity android:name="xmx.zs.mvcframe.base.HomeActivity">
         </activity>
+
     </application>
 
 </manifest>

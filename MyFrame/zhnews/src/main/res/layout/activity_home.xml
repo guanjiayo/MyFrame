@@ -15,6 +15,8 @@
         android:background="#00ffffff"
         >
         <android.support.v7.widget.Toolbar
+            android:clipToPadding="true"
+            android:fitsSystemWindows="true"
             android:id="@+id/main_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"

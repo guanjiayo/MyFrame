@@ -39,7 +39,7 @@ public class LoginActivity extends BaseActivity {
     String userName;
 
     @Override
-    protected void initListener() {
+    protected void initEvent() {
 
         mEt_Username.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override

@@ -86,7 +86,7 @@ public class HomeActivity extends BaseActivity {
      * DrawerLayout 开关事件
      */
     @Override
-    protected void initListener() {
+    protected void initEvent() {
 
     }
 

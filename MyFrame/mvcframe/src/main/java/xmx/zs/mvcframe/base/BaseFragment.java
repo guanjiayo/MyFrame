@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import butterknife.ButterKnife;
+
 /*
  * @创建者     默小铭
  * @博客       http://blog.csdn.net/u012792686
@@ -16,14 +18,16 @@ import android.view.ViewGroup;
  *           //TODO Fragment的增删该操作写一个工具类FragmentUtils操作
  * @补充内容
  *
- * ---------------------------------     
+ * ---------------------------------
  * @新增内容
  *
  */
 public abstract class BaseFragment extends Fragment {
 
     protected HomeActivity mContext;
-
+    /**
+     * TAG 这里定义TAG,后面继承的Activity能直接使用
+     **/
     protected final String TAG = this.getClass().getSimpleName();
 
     @Override
@@ -45,11 +49,17 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle
             savedInstanceState) {
-        //让子类覆盖
-        return initLayout();
+        View rootView = View.inflate(mContext, setLayoutID(), null);
+        ButterKnife.bind(this, rootView);
+        return rootView;
     }
 
-    protected abstract View initLayout();
+    /**
+     * Fragment 布局文件ID
+     *
+     * @return
+     */
+    protected abstract int setLayoutID();
 
     /**
      * Fragment中,onViewCreated()初始化View对象
@@ -63,7 +73,17 @@ public abstract class BaseFragment extends Fragment {
         initView(view);
     }
 
-    protected abstract void initView(View view);
+
+    /**
+     * 初始化View对象
+     * <p>
+     * 如果在onCreateView()实现了ButterKnife.bind(),可不重写该方法
+     *
+     * @param view onViewCreated()传过来的rootView,用于rootView.findViewById()
+     */
+    protected void initView(View view) {
+
+    }
 
 
     @Override
@@ -89,8 +109,7 @@ public abstract class BaseFragment extends Fragment {
 
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-    }
+
+
+
 }

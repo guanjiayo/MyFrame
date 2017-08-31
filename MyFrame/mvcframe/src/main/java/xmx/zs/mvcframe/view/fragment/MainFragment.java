@@ -21,10 +21,10 @@ import xmx.zs.mvcframe.base.BaseFragment;
 public class MainFragment extends BaseFragment {
 
 
+
     @Override
-    protected View initLayout() {
-        View rootView = View.inflate(mContext, R.layout.fragment_main, null);
-        return rootView;
+    protected int setLayoutID() {
+        return R.layout.fragment_main;
     }
 
     @Override

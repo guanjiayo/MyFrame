@@ -33,19 +33,20 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        initSDK();
-        Utils.init(this);
         context = this;
+        Utils.init(this);
+        initSDK();
     }
 
     private void initSDK() {
-        //UMeng SDK
+        /**UMeng SDK**/
         //如果开发者调用kill或者exit之类的方法杀死进程，
         // 请务必在此之前调用MobclickAgent.onKillProcess(Context context)方法，用来保存统计数据
         //其他统计方法看友盟的官方文档
         UMConfigure.init(context, UMConfigure.DEVICE_TYPE_PHONE, "59a2abe8aed179634c0016c2");
         UMConfigure.setEncryptEnabled(false);//日志是否加密
         UMConfigure.setLogEnabled(true);//LOG 是否输出
+
     }
 
     /**
