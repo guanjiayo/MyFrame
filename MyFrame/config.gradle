@@ -34,7 +34,9 @@ ext {
                     "dragger2-apt"         : "com.google.dagger:dagger-compiler:$dragger2Version",
                     "gson"                 : 'com.google.code.gson:gson:2.8.1',
                     "ormlite"              : 'com.j256.ormlite:ormlite-android:5.0',
-                    "EventBus"             : 'org.greenrobot:eventbus:3.0.0'
+                    "EventBus"             : 'org.greenrobot:eventbus:3.0.0',
+                    "CircleImageView"      : 'de.hdodenhof:circleimageview:2.1.0',
+                    "StepView"             : 'com.github.baoyachi:StepView:1.9'
     ]
 
 
