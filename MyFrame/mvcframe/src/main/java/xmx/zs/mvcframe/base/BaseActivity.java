@@ -14,7 +14,7 @@ import org.greenrobot.eventbus.EventBus;
 
 import butterknife.ButterKnife;
 import xmx.zs.mvcframe.receiver.NetWorkReceiver;
-import xmx.zs.mvcframe.utils.ActManager;
+import xmx.zs.mvcframe.utils.ActivityUtils;
 import xmx.zs.mvcframe.utils.Logger;
 import xmx.zs.mvcframe.utils.StatusBar;
 import xmx.zs.mvcframe.utils.ToastUtils;
@@ -94,8 +94,7 @@ public abstract class BaseActivity extends AppCompatActivity implements NetWorkR
         //ScreenUtils.setPortrait(this);//这里先设置为竖屏
         // ScreenUtils.setFullScreen(this);
         Logger.isDebug = true;
-        //入栈
-        ActManager.getInstance().addActivity(this);
+
     }
 
     /**
@@ -143,8 +142,12 @@ public abstract class BaseActivity extends AppCompatActivity implements NetWorkR
 
     }
 
-    protected void startActivity() {
+    protected void startActivity(Class<?> activity) {
+        ActivityUtils.startActivity(activity);
+    }
 
+    protected void startActivity(Bundle bundle, Class<?> activity) {
+        ActivityUtils.startActivity(bundle, activity);
     }
 
     /**
@@ -170,8 +173,6 @@ public abstract class BaseActivity extends AppCompatActivity implements NetWorkR
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        //Activity出栈
-        ActManager.getInstance().finishActivity(this);
         // 注销广播
         unregisterReceiver(mMyReceiver);
         //注销EventBus
@@ -208,7 +209,7 @@ public abstract class BaseActivity extends AppCompatActivity implements NetWorkR
                 mPreClickTime = System.currentTimeMillis();
                 return;
             } else {
-                ActManager.getInstance().AppExit(this);
+                ActivityUtils.AppExit(this);
             }
         } else {
             super.onBackPressed();// finish

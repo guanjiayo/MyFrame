@@ -5,7 +5,8 @@ import android.content.Context;
 
 import com.umeng.commonsdk.UMConfigure;
 
-import xmx.zs.mvcframe.utils.Utils;
+import xmx.zs.mvcframe.utils.ActManager;
+import xmx.zs.mvcframe.utils.GlobalUtils;
 
 /*
  * @创建者     默小铭
@@ -34,7 +35,8 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         context = this;
-        Utils.init(this);
+        GlobalUtils.init(this);
+        registerActivityLifecycleCallbacks(ActManager.mCallbacks);
         initSDK();
     }
 

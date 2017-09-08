@@ -1,6 +1,5 @@
 package xmx.zs.mvcframe.view.activity;
 
-import android.content.Intent;
 import android.support.design.widget.TextInputLayout;
 import android.text.TextUtils;
 import android.view.View;
@@ -96,9 +95,8 @@ public class LoginActivity extends BaseActivity {
     @OnClick(R.id.btn_login)
     public void onClick() {
         if (RegularUtils.isUserName(userName) && RegularUtils.isPassword(password)) {
-
             //TODO ActivityUtils改回来
-            startActivity(new Intent(mContext, HomeActivity.class));
+            startActivity(HomeActivity.class);
 
         }
 
