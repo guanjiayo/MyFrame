@@ -231,7 +231,7 @@ public abstract class BaseActivity extends AppCompatActivity implements NetWorkR
                     return;
                 } else {
 
-                    ActManager.getInstance().AppExit(this);
+                    ActListManager.getInstance().AppExit(this);
                 }
             }
 

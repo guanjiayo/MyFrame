@@ -385,13 +385,13 @@ public final class ActivityUtils {
      * @return 栈顶Activity
      */
     public static Activity getTopActivity() {
-        if (ActManager.sTopActivityWeakRef != null) {
-            Activity activity = ActManager.sTopActivityWeakRef.get();
+        if (ActListManager.sTopActivityWeakRef != null) {
+            Activity activity = ActListManager.sTopActivityWeakRef.get();
             if (activity != null) {
                 return activity;
             }
         }
-        return ActManager.sActivityList.get(ActManager.sActivityList.size() - 1);
+        return ActListManager.sActivityList.get(ActListManager.sActivityList.size() - 1);
     }
 
 
@@ -399,7 +399,7 @@ public final class ActivityUtils {
      * 结束所有activity
      */
     public static void finishAllActivities() {
-        List<Activity> activityList = ActManager.sActivityList;
+        List<Activity> activityList = ActListManager.sActivityList;
         for (int i = activityList.size() - 1; i >= 0; --i) {
             activityList.get(i).finish();
             activityList.remove(i);

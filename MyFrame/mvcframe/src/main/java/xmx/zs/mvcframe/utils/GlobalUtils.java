@@ -35,7 +35,7 @@ public final class GlobalUtils {
      * 在Application类初始化
      * <p>
      * 如果使用LinkList那套,需要在Application调用一下方法
-     * app.registerActivityLifecycleCallbacks(ActManager.mCallbacks);
+     * app.registerActivityLifecycleCallbacks(ActListManager.mCallbacks);
      *
      * @param app Application类
      */

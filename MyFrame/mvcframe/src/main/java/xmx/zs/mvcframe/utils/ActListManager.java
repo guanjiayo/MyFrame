@@ -6,7 +6,7 @@ package xmx.zs.mvcframe.utils;
  * @本类描述	  Activity管理类
  * @内容说明   1.使用LinkList对项目中所有Activity进行管理
  *
- * @使用: 1.在Application类的registerActivityLifecycleCallbacks(ActManager.mCallbacks);传入mCallBack
+ * @使用: 1.在Application类的registerActivityLifecycleCallbacks(ActListManager.mCallbacks);传入mCallBack
  *        2.使用对应的ActivityUtils
  *
  */
@@ -19,12 +19,12 @@ import java.lang.ref.WeakReference;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ActManager {
+public class ActListManager {
 
     public static WeakReference<Activity> sTopActivityWeakRef;
     public static List<Activity> sActivityList = new LinkedList<>();
 
-    private ActManager() {
+    private ActListManager() {
         throw new UnsupportedOperationException("u can't instantiate me...");
     }
 

@@ -5,7 +5,7 @@ import android.content.Context;
 
 import com.umeng.commonsdk.UMConfigure;
 
-import xmx.zs.mvcframe.utils.ActManager;
+import xmx.zs.mvcframe.utils.ActListManager;
 import xmx.zs.mvcframe.utils.GlobalUtils;
 
 /*
@@ -36,7 +36,7 @@ public class MyApplication extends Application {
         super.onCreate();
         context = this;
         GlobalUtils.init(this);
-        registerActivityLifecycleCallbacks(ActManager.mCallbacks);
+        registerActivityLifecycleCallbacks(ActListManager.mCallbacks);
         initSDK();
     }
 
