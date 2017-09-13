@@ -34,6 +34,11 @@ public class LoginActivity extends BaseActivity {
         return R.layout.activity_login;
     }
 
+    @Override
+    protected void initData() {
+
+    }
+
     String password;
     String userName;
 
@@ -88,6 +93,11 @@ public class LoginActivity extends BaseActivity {
             }
         });
 
+
+    }
+
+    @Override
+    public void onClick(View v) {
 
     }
 
