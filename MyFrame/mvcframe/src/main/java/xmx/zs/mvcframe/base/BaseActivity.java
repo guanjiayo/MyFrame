@@ -177,20 +177,20 @@ public abstract class BaseActivity extends AppCompatActivity implements NetWorkR
     }
 
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        MobclickAgent.onPause(this);
-    }
-
-    /**
-     * 可以在这里做判断token的有效期是否过期
-     */
-    @Override
-    protected void onResume() {
-        super.onResume();
-        MobclickAgent.onResume(this);
-    }
+//    @Override
+//    protected void onPause() {
+//        super.onPause();
+//        MobclickAgent.onPause(this);
+//    }
+//
+//    /**
+//     * 可以在这里做判断token的有效期是否过期
+//     */
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        MobclickAgent.onResume(this);
+//    }
 
     /**
      * 增强用户体验

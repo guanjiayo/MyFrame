@@ -1,1 +1,1 @@
-include ':app', ':base-adapter-library', ':zhnews', ':mvcframe', ':bjframe', ':prefenence', ':label_demo', ':expand_edittext', ':mvpframe'
+include ':app', ':base-adapter-library', ':expand_edittext', ':bjframe', ':prefenence', ':label_demo', ':zhnews', ':mvcframe', ':mvpframe'
