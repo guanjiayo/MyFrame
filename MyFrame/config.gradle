@@ -2,17 +2,14 @@ ext {
 
     // SDK And Tools
     android = [compileSdkVersion: 25,
-               buildToolsVersion: "26.0.2",
+               buildToolsVersion: "26.1.0",
                minSdkVersion    : 15,
                targetSdkVersion : 25,
                versionCode      : 1,
                versionName      : "1.0"]
 
     //support library version
-    supportLibraryVersion = '26.0.0-alpha1'
-
-    //butterknife version
-    butterknifeVersion = '8.7.0'
+    supportLibraryVersion = '28.0.0-alpha1'
 
     //dragger2 version
     dragger2Version = '2.11'
