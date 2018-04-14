@@ -1,0 +1,79 @@
+apply plugin: 'com.android.application'
+
+android {
+
+//渠道名称
+//    productFlavors {
+//        develop {}
+//        xiaomi {}
+//        huawei {}
+//        anzhi {}
+//    }
+
+    //修改生成的apk名称
+//    android.applicationVariants.all { variant ->
+//        variant.outputs.all { output ->
+//
+//            def outputFile = output.outputFile
+//            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+//                def fileName = outputFile.name.replace(".apk", "-${defaultConfig.versionName}.apk")
+//                outputFileName = fileName
+//            }
+//        }
+//    }
+
+    compileSdkVersion 27
+
+    defaultConfig {
+        applicationId "xmx.zs.mvcframe"
+        minSdkVersion 17
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    //打包apk版本设置,直接设置release更能发现问题
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+//    sourceSets {
+//        main {
+//            //layout布局文件分包
+//            res.srcDirs =
+//                    [
+//                            'src/main/res/layouts/activity',
+//                            'src/main/res/layouts/fragment',
+//                            'src/main/res/layouts/content',
+//                            'src/main/res/layouts',
+//                            'src/main/res',
+//
+//                            'src/main/res/drawables'
+//                    ]
+//        }
+//    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    //cardview
+    //compile "com.android.support:cardview-v7:$rootProject.supportLibraryVersion"
+
+    //底部导航
+    // compile rootProject.ext.dependencies["bottom-navigation-bar"]
+    //compile rootProject.ext.dependencies["constraint-layout"]
+    //EventBus
+    // compile rootProject.ext.dependencies["EventBus"]
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.android.support:design:27.1.1'
+    //implementation project(':expand_edittext')
+}
+
