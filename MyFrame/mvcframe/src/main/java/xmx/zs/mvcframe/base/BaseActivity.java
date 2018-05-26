@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import xmx.zs.mvcframe.R;
 import xmx.zs.mvcframe.receiver.NetWorkReceiver;
 import xmx.zs.mvcframe.utils.ActivityUtils;
 import xmx.zs.mvcframe.utils.Logger;
@@ -37,7 +38,7 @@ import xmx.zs.mvcframe.utils.ToastUtils;
  *            13.请求网络框架,回调方法  参考RootActivity
  *
  *
- * ---------------------------------     
+ * ---------------------------------
  * @新增内容  //TODO 加上设置页面(清楚缓存,夜间模式之类)
  *           //TODO 加上登陆注册页面
  *
@@ -56,13 +57,12 @@ public abstract class BaseActivity extends AppCompatActivity implements NetWorkR
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setBaseConfig();
         setContentView(setContentViewId());
         /**如果这里使用了ButterKnife,子类不需要重写initView()**/
         //ButterKnife.bind(this);
-        /**事件总线  EventBus**/
-       // EventBus.getDefault().register(this);
         setScreen();
         mContext = BaseActivity.this;
         StatusBar.setStatusBarColor(this, Color.BLUE);
@@ -167,8 +167,6 @@ public abstract class BaseActivity extends AppCompatActivity implements NetWorkR
         super.onDestroy();
         // 注销广播
         unregisterReceiver(mMyReceiver);
-        //注销EventBus
-       // EventBus.getDefault().unregister(this);
     }
 
 

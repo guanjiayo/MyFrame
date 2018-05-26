@@ -21,20 +21,20 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
     implementation 'com.android.support:appcompat-v7:27.1.1'
-    testCompile 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
     //dragger2
-    compile 'com.google.dagger:dagger:2.11'
+    implementation 'com.google.dagger:dagger:2.11'
     //使用apt插件为dagger2生成代码
     annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
      //Retrofit2
-    compile rootProject.ext.dependencies["retrofit"]
-    compile rootProject.ext.dependencies["retrofit-gson"]
-    compile rootProject.ext.dependencies["gson"]
+    implementation rootProject.ext.dependencies["retrofit"]
+    implementation rootProject.ext.dependencies["retrofit-gson"]
+    implementation rootProject.ext.dependencies["gson"]
     //OrmLite 数据库工具
-    compile rootProject.ext.dependencies["ormlite"]
+    implementation rootProject.ext.dependencies["ormlite"]
 }

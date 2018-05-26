@@ -16,7 +16,6 @@ import xmx.zs.mvcframe.utils.RegularUtils;
  */
 public class LoginActivity extends BaseActivity {
 
-
     EditText        mEt_Username;
     TextInputLayout mTil_Username;
     EditText        mEt_Password;
@@ -36,6 +35,7 @@ public class LoginActivity extends BaseActivity {
         mEt_Password = (EditText) findViewById(R.id.et_password);
         mTil_Pwd = (TextInputLayout) findViewById(R.id.til_pwd);
         mButton = (Button) findViewById(R.id.btn_login);
+
     }
 
     @Override
@@ -48,6 +48,7 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     protected void initEvent() {
+        mButton.setOnClickListener(this);
 
         mEt_Username.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -102,11 +103,16 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void onClick(View v) {
-//        if (RegularUtils.isUserName(userName) && RegularUtils.isPassword(password)) {
-//            //TODO ActivityUtils改回来
-//            startActivity(HomeActivity.class);
-//
-//        }
+        //        if (RegularUtils.isUserName(userName) && RegularUtils.isPassword(password)) {
+        //            //TODO ActivityUtils改回来
+        //            startActivity(HomeActivity.class);
+        //
+        //        }
+        switch (v.getId()) {
+            case R.id.btn_login:
+                startActivity(MainActivity.class);
+                break;
+        }
     }
 
 

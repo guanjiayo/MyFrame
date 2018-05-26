@@ -20,9 +20,9 @@ import xmx.zs.mvcframe.utils.GlobalUtils;
  * @补充内容    1.如果工具类过多,可以写一个Global类用于初始化工具类以减少Application类的代码量
  *             2.注意Application类不能保存数据
  *
- * ---------------------------------     
- * @更新时间   
- * @新增内容   
+ * ---------------------------------
+ * @更新时间
+ * @新增内容
  *
  */
 
@@ -32,10 +32,14 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        //File file = new File(Environment.getExternalStorageDirectory().getPath(), "app6");
+        //Log.i("MyApplication", "onCreate: " + file.getAbsolutePath());
+       // Debug.startMethodTracing("app6");
         context = this;
         GlobalUtils.init(this);
         registerActivityLifecycleCallbacks(ActListManager.mCallbacks);
         initSDK();
+       // Debug.stopMethodTracing();
     }
 
     private void initSDK() {
