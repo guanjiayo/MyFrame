@@ -8,7 +8,7 @@
     tools:context=".view.activity.MainActivity">
 
 
-    <TextView
+    <TextVieW
         android:clickable="true"
         android:id="@+id/textView2"
         android:layout_width="wrap_content"

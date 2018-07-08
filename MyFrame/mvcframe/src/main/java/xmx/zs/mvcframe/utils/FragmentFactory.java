@@ -7,7 +7,7 @@ package xmx.zs.mvcframe.utils;
  * @内容说明   工厂设计模式+单例设计模式创建Fragment
  * @补充内容
  *
- * ---------------------------------     
+ * ---------------------------------
  * @更新时间
  * @新增内容
  *
@@ -20,13 +20,13 @@ import xmx.zs.mvcframe.view.fragment.MainFragment;
 public class FragmentFactory {
     private static MainFragment mMainFragment;
 
-
-    public static BaseFragment getFragment(int position) {
+    //todo 根据简单工厂设计模式案例,可以再扩展一个反射实现的简单工厂
+    public static BaseFragment createFragment(int position) {
         BaseFragment mBaseFragment = null;
         switch (position) {
             case 0:
                 if (mMainFragment == null) {
-                    mMainFragment = MainFragment.newInstance();
+                    mMainFragment = new MainFragment();
                 }
                 mBaseFragment = mMainFragment;
                 break;

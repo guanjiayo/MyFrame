@@ -22,7 +22,7 @@ import xmx.zs.mvcframe.utils.FragmentFactory;
  *
  * @本类功能
  *
- * ---------------------------------     
+ * ---------------------------------
  * @新增内容
  *
  */
@@ -57,14 +57,29 @@ public class HomeActivity extends BaseActivity {
     }
 
     /**
-     * 清空数组里所有的Fragment,防止Fragment重叠问题
-     * <p>
-     * 再设置初始化时显示的Fragment
+     * 1.清空数组里所有的Fragment,防止Fragment重叠问题
+     * 2.再设置初始化时显示的Fragment
+     * 注一: 需要预加载的话可以直接add()全部,show()或hide()用来显示或隐藏
+     * 注二: 根据点击状态几个RadioButton的index,add对应的Fragment
      * <p>
      * 然后在子Fragment里使用fragment.isAdded()方法判断Fragment是否已经添加到Activity
+     * //todo 看抽到哪个位置可一起判断
      * true:显示Fragment
      * false:添加Fragment
+     * <p>
+     * 使用hide()或show()方法时会触发onHiddenChanged(),可用作刷新数据
+     *
+     * @Override
+     * public void onHiddenChanged(boolean hidden) {
+     *    super.onHiddenChanged(hidden);
+     *    if (hidden){
+     *       //Fragment隐藏时调用
+     *    }else {
+     *        //Fragment显示时调用
+     *    }
+     * }
      */
+    //todo 直接改造成一次性全部加载,在FragmentFactory判断isAdded()
     private void initFragment() {
         //清空数组里所有的Fragment,防止Fragment重叠问题
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -77,9 +92,7 @@ public class HomeActivity extends BaseActivity {
         }
         fragmentTransaction.commit();
         //设置初始化时显示的Fragment
-        getSupportFragmentManager().beginTransaction().add(R.id.fl_main, FragmentFactory.getFragment(0), "0").commit();
-
-
+        getSupportFragmentManager().beginTransaction().add(R.id.fl_main, FragmentFactory.createFragment(0), "0").commit();
     }
 
 

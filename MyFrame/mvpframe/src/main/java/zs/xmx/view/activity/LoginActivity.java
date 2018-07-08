@@ -9,12 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import javax.inject.Inject;
-
 import zs.xmx.R;
-import zs.xmx.dagger2.component.DaggerILoginActivityComponent;
-import zs.xmx.model.module.LoginActivityMoudle;
-import zs.xmx.presenter.LoginPresenter;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     EditText et_username;
@@ -23,10 +18,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private ProgressDialog dialog;
 
-    //第一步:指定需要注入的目标,下面就不需要new 的方式将P层和V层关联
-    @Inject
-    LoginPresenter mPresenter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,13 +25,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         initView();
         dialog = new ProgressDialog(this);
 
-        //此处会实例化具体P层的对象,一旦new出来,两层就会耦合到一起
-        //mPresenter = new LoginPresenter(this);
-
-        DaggerILoginActivityComponent component = (DaggerILoginActivityComponent) DaggerILoginActivityComponent.builder().
-                loginActivityMoudle(new LoginActivityMoudle(this))
-                .build();
-        component.in(this);
     }
 
     private void initView() {
@@ -91,7 +75,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         if (checkUserInfo) {
             dialog.show();
-            mPresenter.login(username, password);
         } else {
             Toast.makeText(this, "用户名或密码不能为空", Toast.LENGTH_SHORT).show();
         }

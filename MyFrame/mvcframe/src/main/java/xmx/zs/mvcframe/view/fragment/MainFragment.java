@@ -33,15 +33,5 @@ public class MainFragment extends BaseFragment {
         tv.setText("MainFragment");
     }
 
-    /**
-     * 类似构造函数,谁调用,谁实例化
-     * <p>
-     * 同时也可以通过这个方法传递参数
-     *
-     * @return
-     */
-    public static MainFragment newInstance() {
-        return new MainFragment();
 
-    }
 }

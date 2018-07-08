@@ -18,7 +18,7 @@ import java.util.Random;
  *            3.默认线条的条数
  *            4.验证码显示的宽高
  *
- *      
+ *
  */
 //TODO 后期增加:1.干扰元素多点(背景噪点,文字扭曲度更大,颜色更杂)
 public class SecurityCodeUtils {
@@ -95,7 +95,8 @@ public class SecurityCodeUtils {
             drawLine(c, paint);
         }
 
-        c.save(Canvas.ALL_SAVE_FLAG);//保存
+        // c.save(Canvas.ALL_SAVE_FLAG);//保存
+        c.save();
         c.restore();//
         return bp;
     }

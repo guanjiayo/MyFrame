@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/bjframe/bjframe.iml" filepath="$PROJECT_DIR$/bjframe/bjframe.iml" />
       <module fileurl="file://$PROJECT_DIR$/expand_edittext/expand_edittext.iml" filepath="$PROJECT_DIR$/expand_edittext/expand_edittext.iml" />
       <module fileurl="file://$PROJECT_DIR$/label_demo/label_demo.iml" filepath="$PROJECT_DIR$/label_demo/label_demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lib-permission/lib-permission.iml" filepath="$PROJECT_DIR$/lib-permission/lib-permission.iml" />
       <module fileurl="file://$PROJECT_DIR$/mvcframe/mvcframe.iml" filepath="$PROJECT_DIR$/mvcframe/mvcframe.iml" />
       <module fileurl="file://$PROJECT_DIR$/mvpframe/mvpframe.iml" filepath="$PROJECT_DIR$/mvpframe/mvpframe.iml" />
       <module fileurl="file://$PROJECT_DIR$/prefenence/prefenence.iml" filepath="$PROJECT_DIR$/prefenence/prefenence.iml" />
