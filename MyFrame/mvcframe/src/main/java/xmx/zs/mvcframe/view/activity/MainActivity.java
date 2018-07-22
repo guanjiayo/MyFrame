@@ -8,8 +8,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import xmx.zs.mvcframe.R;
-import xmx.zs.mvcframe.isolation.net.HttpRequestPresenter;
-import xmx.zs.mvcframe.isolation.net.async.AsyncHttpRequest;
+import xmx.zs.mvcframe.isolation.proxy.net.HttpRequestPresenter;
+import xmx.zs.mvcframe.isolation.proxy.net.async.AsyncHttpRequest;
 import xmx.zs.mvcframe.model.domain.WeatherCallback;
 import xmx.zs.mvcframe.model.domain.WeatherInfo;
 

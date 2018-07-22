@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import xmx.zs.mvcframe.R;
+import xmx.zs.mvcframe.isolation.proxy.net.HttpRequestPresenter;
+import xmx.zs.mvcframe.isolation.proxy.net.async.AsyncHttpRequest;
 import xmx.zs.mvcframe.receiver.NetWorkReceiver;
 import xmx.zs.mvcframe.utils.ActivityUtils;
 import xmx.zs.mvcframe.utils.Logger;
@@ -63,6 +65,8 @@ public abstract class BaseActivity extends AppCompatActivity implements NetWorkR
         setContentView(setContentViewId());
         /**如果这里使用了ButterKnife,子类不需要重写initView()**/
         //ButterKnife.bind(this);
+        /**初始化App网络框架**/
+        HttpRequestPresenter.init(new AsyncHttpRequest());
         setScreen();
         mContext = BaseActivity.this;
         StatusBar.setStatusBarColor(this, Color.BLUE);

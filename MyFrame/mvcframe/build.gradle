@@ -89,5 +89,9 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.3'
     implementation 'com.github.bumptech.glide:glide:4.6.1'
     implementation 'com.squareup.picasso:picasso:2.71828'
-
+    //支付宝支付
+    implementation files('libs/alipaySdk-20180601.jar')
+    //微信支付
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
+    implementation files('libs/open_sdk_r6008_lite.jar')
 }

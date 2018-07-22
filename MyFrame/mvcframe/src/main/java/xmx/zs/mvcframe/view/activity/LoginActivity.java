@@ -1,5 +1,6 @@
 package xmx.zs.mvcframe.view.activity;
 
+import android.content.Intent;
 import android.support.design.widget.TextInputLayout;
 import android.text.TextUtils;
 import android.view.View;
@@ -8,6 +9,8 @@ import android.widget.EditText;
 
 import xmx.zs.mvcframe.R;
 import xmx.zs.mvcframe.base.BaseActivity;
+import xmx.zs.mvcframe.isolation.normal.tencent.TencentRequest;
+import xmx.zs.mvcframe.isolation.normal.wechat.WeChatRequest;
 import xmx.zs.mvcframe.utils.RegularUtils;
 
 
@@ -36,6 +39,7 @@ public class LoginActivity extends BaseActivity {
         mTil_Pwd = (TextInputLayout) findViewById(R.id.til_pwd);
         mButton = (Button) findViewById(R.id.btn_login);
 
+
     }
 
     @Override
@@ -49,6 +53,8 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected void initEvent() {
         mButton.setOnClickListener(this);
+        findViewById(R.id.btn_qq_login).setOnClickListener(this);
+        findViewById(R.id.btn_wechat_login).setOnClickListener(this);
 
         mEt_Username.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -109,11 +115,22 @@ public class LoginActivity extends BaseActivity {
         //
         //        }
         switch (v.getId()) {
-            case R.id.btn_login:
+            case R.id.btn_login://普通登录
                 startActivity(MainActivity.class);
+                break;
+            case R.id.btn_wechat_login://微信登录
+                WeChatRequest.getInstance().login(this);
+                break;
+            case R.id.btn_qq_login://qq登录
+                showToast("SSO登录:" + TencentRequest.getInstance().isSupportSSOLogin(this));
+                TencentRequest.getInstance().login(this);
                 break;
         }
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        TencentRequest.getInstance().onActivityResultData(requestCode, resultCode, data);
+    }
 
 }
