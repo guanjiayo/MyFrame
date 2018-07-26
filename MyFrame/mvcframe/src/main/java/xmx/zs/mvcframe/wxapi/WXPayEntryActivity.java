@@ -89,6 +89,15 @@ public class WXPayEntryActivity extends BaseActivity implements IWXAPIEventHandl
                 Toast.makeText(this, "用户取消", Toast.LENGTH_LONG).show();
                 finish();
                 break;
+            case BaseResp.ErrCode.ERR_SENT_FAILED:
+                //发送失败
+                break;
+            case BaseResp.ErrCode.ERR_UNSUPPORT:
+                //不支持错误
+                break;
+            case BaseResp.ErrCode.ERR_COMM:
+                //一般错误
+                break;
             default:
                 finish();
                 break;

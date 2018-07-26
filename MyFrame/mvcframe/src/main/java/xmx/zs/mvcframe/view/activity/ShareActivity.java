@@ -7,6 +7,7 @@ import android.view.View;
 import xmx.zs.mvcframe.R;
 import xmx.zs.mvcframe.base.BaseActivity;
 import xmx.zs.mvcframe.isolation.normal.tencent.TencentRequest;
+import xmx.zs.mvcframe.isolation.normal.wechat.WeChatRequest;
 
 /*
  * @创建者     默小铭
@@ -41,7 +42,7 @@ public class ShareActivity extends BaseActivity {
                 TencentRequest.getInstance().shareUrlToQQ(this);
                 break;
             case R.id.btn_wechat_share:
-
+                WeChatRequest.getInstance().pay(this,"");
                 break;
         }
     }
