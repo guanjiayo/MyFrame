@@ -2,7 +2,7 @@
 apply from: "config.gradle"
 
 buildscript {
-    ext.kotlin_version = '1.2.31'
+    ext.kotlin_version = '1.2.60'
     repositories {
         jcenter()
         //maven{url 'http://maven.aliyun.com/nexus/content/groups/public/'}
@@ -22,6 +22,8 @@ buildscript {
         classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.1'
 
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'//ADD
+        // 注册MobSDK
+        //classpath "com.mob.sdk:MobSDK:2018.0319.1724"
     }
 }
 

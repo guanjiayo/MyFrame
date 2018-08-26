@@ -22,4 +22,6 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+
+    <string name="weixin_api_key">wxa725306b95f9b282</string>
 </resources>

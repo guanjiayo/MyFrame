@@ -190,7 +190,7 @@ public abstract class BaseActivity extends AppCompatActivity implements NetWorkR
     /**
      * 增强用户体验
      * <p>
-     * 在MainActivity主页,点击两次才能退出程序
+     * 在HomeActivity主页,点击两次才能退出程序
      */
     @Override
     public void onBackPressed() {
@@ -199,7 +199,6 @@ public abstract class BaseActivity extends AppCompatActivity implements NetWorkR
             if (System.currentTimeMillis() - mPreClickTime > 2000) {// 两次点击的间隔大于2s中
                 showToast("再按一次,退出APP");
                 mPreClickTime = System.currentTimeMillis();
-                return;
             } else {
                 ActivityUtils.AppExit(this);
             }
