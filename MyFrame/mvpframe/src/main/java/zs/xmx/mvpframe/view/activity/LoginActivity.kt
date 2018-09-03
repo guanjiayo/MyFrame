@@ -5,9 +5,10 @@ import android.view.View
 import kotlinx.android.synthetic.main.activity_login.*
 import zs.xmx.mvpframe.R
 import zs.xmx.mvpframe.base.BaseActivity
+import zs.xmx.mvpframe.base.HomeActivity
 import zs.xmx.mvpframe.isolation.normal.tencent.TencentRequest
 import zs.xmx.mvpframe.isolation.normal.wechat.WeChatRequest
-import zs.xmx.mvpframe.net.Rx.databus.RxBus
+import zs.xmx.mvpframe.net.retrofit_rx.databus.RxBus
 import zs.xmx.mvpframe.utils.Logger
 import java.util.*
 
@@ -53,8 +54,8 @@ class LoginActivity : BaseActivity() {
 
     override fun urlRequestSuccess(result: Any) {
         Logger.i(TAG, result.toString())
+        startActivity(HomeActivity::class.java)
     }
-
 
 
     override fun onDestroy() {

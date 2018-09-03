@@ -22,7 +22,7 @@ import android.support.design.widget.TextInputEditText;
 import android.util.AttributeSet;
 
 import zs.xmx.R;
-import zs.xmx.utils.AnimationUtils;
+import zs.xmx.mvpframe.utils.AnimationUtils;
 
 
 public class DrawableEditText extends TextInputEditText {

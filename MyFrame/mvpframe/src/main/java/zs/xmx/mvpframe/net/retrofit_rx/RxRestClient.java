@@ -1,4 +1,4 @@
-package zs.xmx.mvpframe.net.Rx;
+package zs.xmx.mvpframe.net.retrofit_rx;
 
 import java.io.File;
 import java.util.HashMap;

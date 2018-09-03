@@ -1,4 +1,4 @@
-package zs.xmx.mvpframe.net.Rx.databus;
+package zs.xmx.mvpframe.net.retrofit_rx.databus;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

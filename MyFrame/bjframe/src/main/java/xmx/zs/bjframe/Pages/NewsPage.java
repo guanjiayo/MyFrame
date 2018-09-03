@@ -5,6 +5,7 @@ import android.widget.TextView;
 
 import xmx.zs.bjframe.base.BasePages;
 import xmx.zs.bjframe.base.HomeActivity;
+import xmx.zs.bjframe.utils.Logger;
 
 /*
  * @创建者     默小铭
@@ -27,6 +28,7 @@ public class NewsPage extends BasePages {
 
     @Override
     public void initData() {
+        Logger.i(TAG,"NewsPage");
         fl_content.removeAllViews();
         //就是往 Fragmentlayout  加数据
         TextView tv_content = new TextView(mContext);

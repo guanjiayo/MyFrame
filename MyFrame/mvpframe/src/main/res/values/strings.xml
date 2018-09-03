@@ -3,6 +3,17 @@
 
     <!--各种AppKey-->
     <string name="weixin_api_key">wxa725306b95f9b282</string>
+
+    <!--首页底部tab-->
+    <string name="title_home">首页</string>
+    <string name="title_show">秀场</string>
+    <string name="title_find">发现</string>
+    <string name="title_shop">购物车</string>
+    <string name="title_me">我的</string>
     <string name="MainFragment">MainFragment</string>
+    <string name="TwoFragment">TwoFragment</string>
+    <string name="ThreeFragment">MainFragment</string>
+    <string name="FourFragment">ThreeFragment</string>
+    <string name="FiveFragment">FiveFragment</string>
 
 </resources>

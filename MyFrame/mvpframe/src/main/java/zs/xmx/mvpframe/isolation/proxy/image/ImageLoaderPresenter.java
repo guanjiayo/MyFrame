@@ -37,4 +37,9 @@ public class ImageLoaderPresenter implements ImageLoader {
     public void displayImage(Activity activity, String imageUrl, ImageView imageView) {
         imageLoader.displayImage(activity, imageUrl, imageView);
     }
+
+    @Override
+    public void displayCropImage(Activity activity, String imageUrl, Object transformation, ImageView imageView) {
+
+    }
 }

@@ -8,7 +8,7 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import zs.xmx.mvpframe.net.RestCreator;
+import zs.xmx.mvpframe.net.retrofit_normal.RestCreator;
 import zs.xmx.mvpframe.net.callback.IError;
 import zs.xmx.mvpframe.net.callback.IFailure;
 import zs.xmx.mvpframe.net.callback.IRequest;

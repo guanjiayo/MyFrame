@@ -16,7 +16,7 @@ import xmx.zs.bjframe.base.BasePages;
  * @内容说明   ${TODO}
  * @补充内容
  *
- * ---------------------------------     
+ * ---------------------------------
  * @新增内容
  *
  */
@@ -26,7 +26,6 @@ public class MyPageAdapter extends PagerAdapter {
     public MyPageAdapter(List<BasePages> datas) {
         this.mDatas = datas;
     }
-
 
 
     //        1. getCount() 用来确定多少个数据显示

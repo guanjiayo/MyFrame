@@ -3,7 +3,7 @@ package zs.xmx.mvpframe.view.activity
 import android.view.View
 import zs.xmx.mvpframe.R
 import zs.xmx.mvpframe.base.BaseActivity
-import zs.xmx.mvpframe.net.Rx.databus.RxBus
+import zs.xmx.mvpframe.net.retrofit_rx.databus.RxBus
 import zs.xmx.mvpframe.utils.Logger
 import java.util.*
 

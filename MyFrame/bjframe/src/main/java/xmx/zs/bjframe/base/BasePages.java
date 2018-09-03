@@ -13,7 +13,7 @@ import xmx.zs.bjframe.R;
  * @内容说明   ${TODO}
  * @补充内容
  *
- * ---------------------------------     
+ * ---------------------------------
  * @新增内容
  *
  */
@@ -21,6 +21,7 @@ public class BasePages {
     protected HomeActivity mContext;
     private   View         rootView;
     protected FrameLayout  fl_content;
+    protected String TAG = BasePages.class.getSimpleName();
 
     //有上下才有后续操作
     public BasePages(HomeActivity context) {

@@ -1,11 +1,14 @@
 package zs.xmx.mvpframe.base;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import zs.xmx.mvpframe.utils.ToastUtils;
 
 /*
  * @创建者     默小铭
@@ -14,19 +17,23 @@ import android.view.ViewGroup;
  * @本类描述	  Fragment 基类
  * @内容说明  Fragment管理交由依赖的Activity管理
  *           //TODO Fragment的增删该操作写一个工具类FragmentUtils操作
+ *           //todo 包括栈问题
  * @补充内容
  *
  * ---------------------------------
  * @新增内容
  *
  */
-public abstract class BaseFragment extends Fragment {
-
+public abstract class BaseFragment extends LazyFragment {
+    /**
+     * 上下文
+     */
     protected HomeActivity mContext;
     /**
-     * TAG 这里定义TAG,后面继承的Activity能直接使用
+     * TAG 这里定义TAG,后面继承的类都能直接使用
      **/
     protected final String TAG = this.getClass().getSimpleName();
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,11 +52,10 @@ public abstract class BaseFragment extends Fragment {
      */
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle
             savedInstanceState) {
-        View rootView = View.inflate(mContext, setLayoutID(), null);
         //ButterKnife.bind(this, rootView);
-        return rootView;
+        return View.inflate(mContext, setLayoutID(), null);
     }
 
     /**
@@ -66,7 +72,7 @@ public abstract class BaseFragment extends Fragment {
      * @param savedInstanceState
      */
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initView(view);
     }
@@ -77,13 +83,15 @@ public abstract class BaseFragment extends Fragment {
      * <p>
      * 如果在onCreateView()实现了ButterKnife.bind(),可不重写该方法
      *
-     * @param view onViewCreated()传过来的rootView,用于rootView.findViewById()
+     * @param rootView onViewCreated()传过来的rootView,用于rootView.findViewById()
      */
-    protected void initView(View view) {
+    protected void initView(View rootView) {
 
     }
 
-
+    /**
+     * 首次加载页面被调用
+     */
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         // 只要Activity 没有销毁   该方法不会重复调用
@@ -107,4 +115,33 @@ public abstract class BaseFragment extends Fragment {
 
     }
 
+    /**
+     * Fragment使用show()/hide()方法会被调用
+     *
+     * @param hidden true隐藏 : false显示
+     *               <p>
+     *               Fragment生命周期跟随Activity
+     */
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+
+    }
+
+    protected void showToast(String msg) {
+        ToastUtils.showToast(mContext, msg);
+    }
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Log.e(TAG, getClass().getSimpleName() + "onStart()");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.e(TAG, getClass().getSimpleName() + "onStart()");
+    }
 }

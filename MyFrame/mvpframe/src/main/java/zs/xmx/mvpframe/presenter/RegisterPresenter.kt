@@ -2,7 +2,7 @@ package zs.xmx.mvpframe.presenter
 
 import zs.xmx.mvpframe.model.IModel
 import zs.xmx.mvpframe.model.impl.IModelImpl
-import zs.xmx.mvpframe.net.Rx.databus.RXEventBus
+import zs.xmx.mvpframe.net.retrofit_rx.databus.RXEventBus
 import zs.xmx.mvpframe.view.IView
 import java.lang.ref.WeakReference
 import java.util.*

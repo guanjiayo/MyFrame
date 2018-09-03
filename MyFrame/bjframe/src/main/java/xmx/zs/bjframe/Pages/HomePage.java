@@ -14,6 +14,7 @@ import xmx.zs.bjframe.adapter.commont.ViewHolder;
 import xmx.zs.bjframe.base.BasePages;
 import xmx.zs.bjframe.base.HomeActivity;
 import xmx.zs.bjframe.domain.MainItemInfo;
+import xmx.zs.bjframe.utils.Logger;
 
 import static xmx.zs.bjframe.R.id.cb;
 
@@ -40,6 +41,7 @@ public class HomePage extends BasePages {
     //就是往 Fragmentlayout  加数据
     @Override
     public void initData() {
+        Logger.i(TAG,"HomePage");
         fl_content.removeAllViews();
         View rootView = View.inflate(mContext, R.layout.page_home, null);
 
@@ -98,4 +100,6 @@ public class HomePage extends BasePages {
         fl_content.addView(rootView);
         super.initData();
     }
+
+
 }

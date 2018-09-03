@@ -1,4 +1,4 @@
-package zs.xmx.mvpframe.net;
+package zs.xmx.mvpframe.net.retrofit_normal;
 
 import java.io.File;
 import java.util.HashMap;
@@ -8,6 +8,7 @@ import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
+import zs.xmx.mvpframe.net.HttpMethod;
 import zs.xmx.mvpframe.net.callback.IError;
 import zs.xmx.mvpframe.net.callback.IFailure;
 import zs.xmx.mvpframe.net.callback.IRequest;

@@ -1,4 +1,4 @@
-package zs.xmx.utils;
+package zs.xmx.mvpframe.utils;
 /*
  * @创建者     mqm
  * @博客       http://blog.csdn.net/u012792686

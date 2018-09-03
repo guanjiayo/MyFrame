@@ -3,12 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MyFrame.iml" filepath="$PROJECT_DIR$/MyFrame.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/base-adapter-library/base-adapter-library.iml" filepath="$PROJECT_DIR$/base-adapter-library/base-adapter-library.iml" />
       <module fileurl="file://$PROJECT_DIR$/bjframe/bjframe.iml" filepath="$PROJECT_DIR$/bjframe/bjframe.iml" />
       <module fileurl="file://$PROJECT_DIR$/expand_edittext/expand_edittext.iml" filepath="$PROJECT_DIR$/expand_edittext/expand_edittext.iml" />
       <module fileurl="file://$PROJECT_DIR$/label_demo/label_demo.iml" filepath="$PROJECT_DIR$/label_demo/label_demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/lib-permission/lib-permission.iml" filepath="$PROJECT_DIR$/lib-permission/lib-permission.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib-permission-aop/lib-permission-aop.iml" filepath="$PROJECT_DIR$/lib-permission-aop/lib-permission-aop.iml" />
       <module fileurl="file://$PROJECT_DIR$/mvcframe/mvcframe.iml" filepath="$PROJECT_DIR$/mvcframe/mvcframe.iml" />
       <module fileurl="file://$PROJECT_DIR$/mvpframe/mvpframe.iml" filepath="$PROJECT_DIR$/mvpframe/mvpframe.iml" />

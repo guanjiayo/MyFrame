@@ -1,4 +1,4 @@
-package zs.xmx.mvpframe.net;
+package zs.xmx.mvpframe.net.retrofit_normal;
 
 import java.util.Map;
 
