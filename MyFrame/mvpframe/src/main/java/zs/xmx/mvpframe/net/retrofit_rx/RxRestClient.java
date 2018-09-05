@@ -19,13 +19,33 @@ import zs.xmx.mvpframe.net.HttpMethod;
  * @内容说明   真正外部使用的是这个类:
  *            HashMap params=new HashMap();
  *            RxRestClient.create()
- *            .url("域名后面的")
- *            .params(params)
- *            .build()
- *            .get()
- *            .subscribeOn(Schedulers.io()){
- *
- *            }
+                .lastUrl(MyConstant.LOGIN)
+                .params(params)
+                .build()
+                .post()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(String s) {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
  *
  */
 public class RxRestClient {

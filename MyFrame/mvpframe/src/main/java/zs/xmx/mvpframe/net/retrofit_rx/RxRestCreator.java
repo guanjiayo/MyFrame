@@ -1,7 +1,9 @@
 package zs.xmx.mvpframe.net.retrofit_rx;
 
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
+import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -33,9 +35,12 @@ public final class RxRestCreator {
     }
 
     private static final class OkHttpHolder {
+        private static final ArrayList<Interceptor> interceptors = ProjectInit.getConfiguration(ConfigKeys.INTERCEPTOR);
+
         private static final long         TIME_OUT       = 60;//连接超时时间
         private static final OkHttpClient OK_HTTP_CLIENT = new OkHttpClient.Builder()
                 .connectTimeout(TIME_OUT, TimeUnit.SECONDS)
+                .addNetworkInterceptor(interceptors.get(0))
                 .build();
 
     }

@@ -46,6 +46,11 @@ public class RestClientBuilder {
         return this;
     }
 
+    /**
+     * 请求进度
+     * @param request
+     * @return
+     */
     public final RestClientBuilder request(IRequest request) {
         this.mRequest = request;
         return this;

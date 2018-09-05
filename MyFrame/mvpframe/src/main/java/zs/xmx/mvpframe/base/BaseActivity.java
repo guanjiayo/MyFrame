@@ -108,6 +108,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         //构建BaseComponent和BasePresenterModule联系
         DaggerBaseComponent.builder().basePresenterModule(new BasePresenterModule(this))
                 .build().inject(this);
+
     }
 
     /**
@@ -191,6 +192,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         super.onDestroy();
         // 注销广播
         unregisterReceiver(mMyReceiver);
+
     }
 
     /**

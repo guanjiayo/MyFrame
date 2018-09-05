@@ -1,9 +1,10 @@
 package zs.xmx.mvpframe.presenter
 
 
+import zs.xmx.mvpframe.bus.rx.RXEventBus
+import zs.xmx.mvpframe.constant.MyConstant
 import zs.xmx.mvpframe.model.IModel
 import zs.xmx.mvpframe.model.impl.IModelImpl
-import zs.xmx.mvpframe.net.retrofit_rx.databus.RXEventBus
 import zs.xmx.mvpframe.view.IView
 import java.lang.ref.WeakReference
 import java.util.*
@@ -32,6 +33,7 @@ class LoginPresenter<T : IView>(view: T) {
      */
     @RXEventBus
     fun parseData(params: String) {
+        //todo 解析数据,封装库这里先不管
         mView.get()!!.urlRequestSuccess(params)
     }
 
@@ -40,6 +42,7 @@ class LoginPresenter<T : IView>(view: T) {
      * @param params
      */
     fun loadDataFromNet(params: HashMap<String, Any>) {
-        mModel.loadDataFromNet(params)
+        //TODO 后面看下封装一个BasePresenter,把公共方法抽取
+        mModel.loadDataFromNet(MyConstant.LOGIN, params)
     }
 }

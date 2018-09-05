@@ -1,4 +1,4 @@
-package zs.xmx.mvpframe.net.retrofit_rx.databus;
+package zs.xmx.mvpframe.bus.rx;
 
 import android.annotation.SuppressLint;
 
@@ -91,12 +91,12 @@ public class RxBus {
     public void send(Object data) {
         for (Object subscriber : subscribers) {
             //扫描注解,将数据发送到注册的对象(被注解方法的位置)
-            callMethodByAnnotion(subscriber, data);
+            callMethodByAnnotation(subscriber, data);
         }
     }
 
 
-    private void callMethodByAnnotion(Object target, Object data) {
+    private void callMethodByAnnotation(Object target, Object data) {
         //1.得到presenter中的所有方法
         Method[] methodArray = target.getClass().getDeclaredMethods();
         for (int i = 0; i < methodArray.length; i++) {

@@ -12,5 +12,5 @@ import java.util.*
  */
 interface IModel {
 
-    fun loadDataFromNet(params: HashMap<String, Any>)
+    fun loadDataFromNet(lastUrl: String, params: HashMap<String, Any>)
 }

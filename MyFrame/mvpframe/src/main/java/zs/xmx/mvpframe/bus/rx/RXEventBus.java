@@ -1,4 +1,4 @@
-package zs.xmx.mvpframe.net.retrofit_rx.databus;
+package zs.xmx.mvpframe.bus.rx;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
  * @博客       http://blog.csdn.net/u012792686
  * @创建时间   2018/6/15 12:31
  * @本类描述	  RxBus事件总线接口
- * @内容说明
+ * @内容说明  todo 写一些Value用于区分那个注解
  *
  */
 @Target(ElementType.METHOD)

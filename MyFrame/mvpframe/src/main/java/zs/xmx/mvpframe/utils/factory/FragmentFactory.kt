@@ -15,9 +15,8 @@ package zs.xmx.mvpframe.utils.factory
  */
 
 
-import zs.xmx.mimarket.view.fragment.*
-import zs.xmx.mvpframe.base.BaseFragment
 import zs.xmx.mvpframe.view.fragment.*
+import zs.xmx.mvpframe.base.BaseFragment
 
 object FragmentFactory {
     private var mMainFragment: MainFragment? = null

@@ -1,4 +1,4 @@
-package xmx.zs.mvcframe.base.bus;
+package zs.xmx.mvpframe.bus.normal;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;

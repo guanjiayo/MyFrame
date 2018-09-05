@@ -1,12 +1,14 @@
 package zs.xmx.mvpframe.model.impl;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.HashMap;
 
 import io.reactivex.functions.Function;
+import zs.xmx.mvpframe.bus.rx.RxBus;
 import zs.xmx.mvpframe.model.IModel;
 import zs.xmx.mvpframe.net.callback.ISuccess;
 import zs.xmx.mvpframe.net.retrofit_normal.RestClient;
-import zs.xmx.mvpframe.net.retrofit_rx.databus.RxBus;
 
 /*
  * @创建者     默小铭
@@ -18,10 +20,11 @@ import zs.xmx.mvpframe.net.retrofit_rx.databus.RxBus;
  *
  */
 public class IModelImpl implements IModel {
+
     @Override
-    public void loadDataFromNet(HashMap<String, Object> params) {
+    public void loadDataFromNet(@NotNull String lastUrl, @NotNull HashMap<String, Object> params) {
         RestClient.create()
-                .lastUrl("/xiandu")
+                .lastUrl(lastUrl)
                 .params(params)
                 .success(new ISuccess() {
                     @Override
@@ -39,8 +42,5 @@ public class IModelImpl implements IModel {
                 })
                 .build()
                 .post();
-
     }
-
-
 }
