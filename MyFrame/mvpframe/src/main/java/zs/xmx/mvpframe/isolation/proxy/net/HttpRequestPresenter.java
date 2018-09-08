@@ -10,7 +10,7 @@ import java.util.Map;
  * @内容说明
  *
  * 使用:  HttpRequestPresenter.init(new AsyncHttpRequest());
-          HttpRequestPresenter.getInstance().get(xx);
+          HttpRequestPresenter.getDefault().get(xx);
  *
  * //todo 写一个自定义异常,告诉我们先要init,再 getInstant()
  *

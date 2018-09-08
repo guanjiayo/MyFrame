@@ -18,10 +18,10 @@ import zs.xmx.mvpframe.utils.init.ProjectInit;
  * @博客       http://blog.csdn.net/u012792686
  * @创建时间   2018/7/20 23:36
  * @本类描述	  腾讯SDK框架实现类
- * @内容说明   1.使用 TencentRequest.getInstance().login(this);
+ * @内容说明   1.使用 TencentRequest.getDefault().login(this);
  *            2. 同时要在 Activity的onActivityResult:
- *            TencentRequest.getInstance().onActivityResultData(requestCode, resultCode, data);
- *            3. 分享需要在onDestroy() TencentRequest.getInstance().releaseResource释放资源
+ *            TencentRequest.getDefault().onActivityResultData(requestCode, resultCode, data);
+ *            3. 分享需要在onDestroy() TencentRequest.getDefault().releaseResource释放资源
  *
  *  Activity的onActivityResult是请求的结果回调,可在那里进行其他操作(如登录成功)
  *

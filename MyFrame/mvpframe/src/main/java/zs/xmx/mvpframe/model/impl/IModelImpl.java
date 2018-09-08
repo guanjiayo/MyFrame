@@ -4,8 +4,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 
-import io.reactivex.functions.Function;
-import zs.xmx.mvpframe.bus.rx.RxBus;
+import zs.xmx.mvpframe.bus.rx_todo.RxBus_todo;
 import zs.xmx.mvpframe.model.IModel;
 import zs.xmx.mvpframe.net.callback.ISuccess;
 import zs.xmx.mvpframe.net.retrofit_normal.RestClient;
@@ -29,15 +28,17 @@ public class IModelImpl implements IModel {
                 .success(new ISuccess() {
                     @Override
                     public void onSuccess(final String response) {
-                        RxBus.getInstance().chainProcess(new Function() {
+                        //                        RxBus_todo.getDefault().chainProcess(new Function() {
+                        //
+                        //
+                        //                            @Override
+                        //                            public Object apply(Object o) throws Exception {
+                        //
+                        //                                return response;
+                        //                            }
+                        //                        });
+                        RxBus_todo.getDefault().post(response);
 
-
-                            @Override
-                            public Object apply(Object o) throws Exception {
-
-                                return response;
-                            }
-                        });
                     }
                 })
                 .build()

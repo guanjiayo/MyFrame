@@ -1,6 +1,6 @@
 package zs.xmx.mvpframe.presenter
 
-import zs.xmx.mvpframe.bus.rx.RXEventBus
+import zs.xmx.mvpframe.bus.rx_todo.RxSubscribe_todo
 import zs.xmx.mvpframe.constant.MyConstant
 import zs.xmx.mvpframe.model.IModel
 import zs.xmx.mvpframe.model.impl.IModelImpl
@@ -31,7 +31,7 @@ class RegisterPresenter<T : IView>(view: T) {
      *
      * @param params
      */
-    @RXEventBus
+    @RxSubscribe_todo
     fun parseData(params: String) {
         //todo 解析数据,封装库这里先不管
         mView.get()?.urlRequestSuccess(params)

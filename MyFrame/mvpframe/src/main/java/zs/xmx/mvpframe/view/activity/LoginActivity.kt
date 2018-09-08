@@ -6,7 +6,7 @@ import kotlinx.android.synthetic.main.activity_login.*
 import zs.xmx.mvpframe.R
 import zs.xmx.mvpframe.base.BaseActivity
 import zs.xmx.mvpframe.base.HomeActivity
-import zs.xmx.mvpframe.bus.rx.RxBus
+import zs.xmx.mvpframe.bus.rx_todo.RxBus_todo
 import zs.xmx.mvpframe.constant.MyConstant
 import zs.xmx.mvpframe.isolation.normal.tencent.TencentRequest
 import zs.xmx.mvpframe.isolation.normal.wechat.WeChatRequest
@@ -22,8 +22,7 @@ class LoginActivity : BaseActivity() {
     }
 
     override fun initEvent() {
-        RxBus.getInstance().register(mLoginPresenter)
-
+        RxBus_todo.getDefault().register(mLoginPresenter)
         btn_register.setOnClickListener(this)
         btn_login.setOnClickListener(this)
         btn_qq_login.setOnClickListener(this)
@@ -66,7 +65,8 @@ class LoginActivity : BaseActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        RxBus.getInstance().register(mLoginPresenter)
+        //RxBus_todo.getDefault().register(mLoginPresenter)
+        RxBus_todo.getDefault().unRegister(mLoginPresenter)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

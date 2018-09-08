@@ -4,7 +4,7 @@ import android.view.View
 import kotlinx.android.synthetic.main.activity_register.*
 import zs.xmx.mvpframe.R
 import zs.xmx.mvpframe.base.BaseActivity
-import zs.xmx.mvpframe.bus.rx.RxBus
+import zs.xmx.mvpframe.bus.rx_todo.RxBus_todo
 import zs.xmx.mvpframe.constant.MyConstant
 import zs.xmx.mvpframe.utils.Logger
 import java.util.*
@@ -36,7 +36,8 @@ class RegisterActivity : BaseActivity() {
     override fun initEvent() {
         //new RegisterPresenter(this).fetch();
         //RxBus注册(类似EventBus)
-        RxBus.getInstance().register(mRegisterPresenter)
+        //RxBus_todo.getDefault().register(mRegisterPresenter)
+        RxBus_todo.getDefault().register(mRegisterPresenter)
         //mPresenter = new RegisterPresenter(this);
 
     }
@@ -45,7 +46,8 @@ class RegisterActivity : BaseActivity() {
     override fun onDestroy() {
         super.onDestroy()
         //RxBus取消注册(类似EventBus)
-        RxBus.getInstance().unRegister(mRegisterPresenter)
+        //RxBus_todo.getDefault().unRegister(mRegisterPresenter)
+        RxBus_todo.getDefault().unRegister(mRegisterPresenter)
     }
 
 

@@ -13,7 +13,7 @@ import java.util.Map;
  * @博客       http://blog.csdn.net/u012792686
  * @创建时间   2018/7/18 10:15
  * @本类描述	  阿里支付框架实现类
- * @内容说明   使用 AliPayRequest.getInstance().pay()
+ * @内容说明   使用 AliPayRequest.getDefault().pay()
  *
  */
 public class AliPayRequest {

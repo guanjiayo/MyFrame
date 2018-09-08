@@ -85,6 +85,8 @@
         <activity android:name=".view.activity.RegisterActivity"/>
         <activity android:name=".view.activity.ShareActivity"/>
         <activity android:name=".view.activity.PayActivity"/>
+        <activity android:name=".view.activity.SetingActivity"/>
+        <activity android:name=".view.activity.SettingActivity"/>
         <!-- 腾讯 end -->
 
     </application>

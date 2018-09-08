@@ -30,7 +30,7 @@ import zs.xmx.mvpframe.utils.ToastUtils;
  * @博客       http://blog.csdn.net/u012792686
  * @创建时间   2018/7/18 12:43
  * @本类描述	  微信SDK框架实现类
- * @内容说明   使用 WeChatRequest.getInstance().login(this);
+ * @内容说明   使用 WeChatRequest.getDefault().login(this);
  *
  * //todo 待优化封装以及测试
  *

@@ -1,120 +1,195 @@
 package zs.xmx.mvpframe.bus.rx;
 
-import android.annotation.SuppressLint;
-
-import java.lang.reflect.Method;
-import java.util.Set;
-import java.util.concurrent.CopyOnWriteArraySet;
-
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.BackpressureStrategy;
+import io.reactivex.Flowable;
+import io.reactivex.FlowableEmitter;
+import io.reactivex.FlowableOnSubscribe;
+import io.reactivex.Scheduler;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.functions.Predicate;
+import io.reactivex.processors.FlowableProcessor;
+import io.reactivex.processors.PublishProcessor;
 
 /*
  * @创建者     默小铭
  * @博客       http://blog.csdn.net/u012792686
- * @创建时间   2018/6/15 12:37
- * @本类描述	  数据总线
- * @内容说明
+ * @创建时间   2018/9/8 0:12
+ * @本类描述	  RxBus
+ * @内容说明   todo 基础RxBus,然后在这上面修改
+ *
+ * 使用说明:  看RxUse.md文档
+ *
  *
  */
-public class RxBus {
-    private Set<Object> subscribers;
+public final class RxBus {
 
-    /**
-     * 注册
-     */
-    public synchronized void register(Object subscriber) {
-        subscribers.add(subscriber);
-    }
+    private final FlowableProcessor<Object> mBus;
 
-    /**
-     * 取消注册
-     */
-    public synchronized void unRegister(Object subscriber) {
-        subscribers.remove(subscriber);
-    }
-
-    //volatile关键字 只保留一个副本
-    private static volatile RxBus instance;
+    private final Consumer<Throwable> mOnError = new Consumer<Throwable>() {
+        @Override
+        public void accept(Throwable throwable) {
+            MyRxUtils.logE(throwable.toString());
+        }
+    };
 
     private RxBus() {
-        //CopyOnWriteArraySet读写分离的集合(线程安全的集合)
-        //将读和写分开成两个数组处理,以保证线程安全
-        subscribers = new CopyOnWriteArraySet<>();
+        mBus = PublishProcessor.create().toSerialized();
     }
 
-    public static RxBus getInstance() {
-        if (instance == null) {
-            synchronized (RxBus.class) {
-                if (instance == null) {
-                    instance = new RxBus();
-                }
-            }
+    public static RxBus getDefault() {
+        return Holder.BUS;
+    }
+
+    public void post(final Object event) {
+        post(event, "", false);
+    }
+
+    public void post(final Object event, final String tag) {
+        post(event, tag, false);
+    }
+
+    public void postSticky(final Object event) {
+        post(event, "", true);
+    }
+
+    public void postSticky(final Object event, final String tag) {
+        post(event, tag, true);
+    }
+
+    private void post(final Object event,
+                      final String tag,
+                      final boolean isSticky) {
+        MyRxUtils.requireNonNull(event, tag);
+
+        MyRxTagMessage msgEvent = new MyRxTagMessage(event, tag);
+        if (isSticky) {
+            MyRxCacheUtils.getInstance().addStickyEvent(msgEvent);
         }
-        return instance;
+        mBus.onNext(msgEvent);
     }
 
-    /**
-     * 把处理过程包装起来
-     * <p>
-     * 把数据都放在总线上
-     * <p>
-     * RxBus.getInstance().chainProcess(new Function() {
-     *
-     * @Override public Object apply(Object o) throws Exception {
-     * //在这里执行请求网络数据操作
-     * return null;
-     * }
-     * });
-     */
-    @SuppressLint("CheckResult")
-    public void chainProcess(Function function) {
-        Observable.just("")
-                .subscribeOn(Schedulers.io())
-                .map(function)//在这里进行网络访问
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer() {
+    public <T> void subscribe(final Object subscriber,
+                              final Callback<T> callback) {
+        subscribe(subscriber, "", false, null, callback);
+    }
+
+    public <T> void subscribe(final Object subscriber,
+                              final String tag,
+                              final Callback<T> callback) {
+        subscribe(subscriber, tag, false, null, callback);
+    }
+
+    public <T> void subscribe(final Object subscriber,
+                              final Scheduler scheduler,
+                              final Callback<T> callback) {
+        subscribe(subscriber, "", false, scheduler, callback);
+    }
+
+    public <T> void subscribe(final Object subscriber,
+                              final String tag,
+                              final Scheduler scheduler,
+                              final Callback<T> callback) {
+        subscribe(subscriber, tag, false, scheduler, callback);
+    }
+
+    public <T> void subscribeSticky(final Object subscriber,
+                                    final Callback<T> callback) {
+        subscribe(subscriber, "", true, null, callback);
+    }
+
+    public <T> void subscribeSticky(final Object subscriber,
+                                    final String tag,
+                                    final Callback<T> callback) {
+        subscribe(subscriber, tag, true, null, callback);
+    }
+
+    public <T> void subscribeSticky(final Object subscriber,
+                                    final Scheduler scheduler,
+                                    final Callback<T> callback) {
+        subscribe(subscriber, "", true, scheduler, callback);
+    }
+
+    public <T> void subscribeSticky(final Object subscriber,
+                                    final String tag,
+                                    final Scheduler scheduler,
+                                    final Callback<T> callback) {
+        subscribe(subscriber, tag, true, scheduler, callback);
+    }
+
+    private <T> void subscribe(final Object subscriber,
+                               final String tag,
+                               final boolean isSticky,
+                               final Scheduler scheduler,
+                               final Callback<T> callback) {
+        MyRxUtils.requireNonNull(subscriber, tag, callback);
+
+        final Class<T> typeClass = MyRxUtils.getTypeClassFromCallback(callback);
+
+        final Consumer<T> onNext = new Consumer<T>() {
+            @Override
+            public void accept(T t) {
+                callback.onEvent(t);
+            }
+        };
+
+        if (isSticky) {
+            final MyRxTagMessage stickyEvent = MyRxCacheUtils.getInstance().findStickyEvent(typeClass, tag);
+            if (stickyEvent != null) {
+                Flowable<T> stickyFlowable = Flowable.create(new FlowableOnSubscribe<T>() {
                     @Override
-                    public void accept(Object data) throws Exception {
-                        //data会被传到总线上
-                        if (data == null) {
-                            return;
-                        }
-                        send(data);//把数据送到P层
+                    public void subscribe(FlowableEmitter<T> emitter) {
+                        emitter.onNext(typeClass.cast(stickyEvent.mEvent));
                     }
-                });
-    }
-
-    public void send(Object data) {
-        for (Object subscriber : subscribers) {
-            //扫描注解,将数据发送到注册的对象(被注解方法的位置)
-            callMethodByAnnotation(subscriber, data);
-        }
-    }
-
-
-    private void callMethodByAnnotation(Object target, Object data) {
-        //1.得到presenter中的所有方法
-        Method[] methodArray = target.getClass().getDeclaredMethods();
-        for (int i = 0; i < methodArray.length; i++) {
-            try {
-                if (methodArray[i].getAnnotation(RXEventBus.class) != null) {
-                    //如果P层哪个方法上用了我们定义的注解,
-                    //就把数据传上去,执行这个方法
-                    //todo 这里只写了一个参数,可扩展成传多个参数(每个参数需要遍历验证一下)
-                    Class<?> paramType = methodArray[i].getParameterTypes()[0];
-                    if (data.getClass().getName().equals(paramType.getName())) {
-                        //执行
-                        methodArray[i].invoke(target, new Object[]{data});
-                    }
+                }, BackpressureStrategy.LATEST);
+                if (scheduler != null) {
+                    stickyFlowable = stickyFlowable.observeOn(scheduler);
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
+                Disposable stickyDisposable = MyRxFlowableUtils.subscribe(stickyFlowable, onNext, mOnError);
+                MyRxCacheUtils.getInstance().addDisposable(subscriber, stickyDisposable);
+            } else {
+                MyRxUtils.logW("sticky event is empty.");
             }
         }
+        Disposable disposable = MyRxFlowableUtils.subscribe(
+                toFlowable(typeClass, tag, scheduler), onNext, mOnError
+        );
+        MyRxCacheUtils.getInstance().addDisposable(subscriber, disposable);
     }
 
+    private <T> Flowable<T> toFlowable(final Class<T> eventType,
+                                       final String tag,
+                                       final Scheduler scheduler) {
+        Flowable<T> flowable = mBus.ofType(MyRxTagMessage.class)
+                .filter(new Predicate<MyRxTagMessage>() {
+                    @Override
+                    public boolean test(MyRxTagMessage MyRxTagMessage) {
+                        return MyRxTagMessage.isSameType(eventType, tag);
+                    }
+                })
+                .map(new Function<MyRxTagMessage, Object>() {
+                    @Override
+                    public Object apply(MyRxTagMessage MyRxTagMessage) {
+                        return MyRxTagMessage.mEvent;
+                    }
+                })
+                .cast(eventType);
+        if (scheduler != null) {
+            return flowable.observeOn(scheduler);
+        }
+        return flowable;
+    }
+
+    public void unregister(final Object subscriber) {
+        MyRxCacheUtils.getInstance().removeDisposables(subscriber);
+    }
+
+    private static class Holder {
+        private static final RxBus BUS = new RxBus();
+    }
+
+    public interface Callback<T> {
+        void onEvent(T t);
+    }
 }

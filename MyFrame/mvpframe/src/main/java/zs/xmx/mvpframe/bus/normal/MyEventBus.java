@@ -19,7 +19,7 @@ import java.util.Map;
  * private void test(传过来的参数){
  * //doSomething...
  * }
- * 4.在onDestory()反注册,防止内存泄漏 MyEventBus.getDefault().unregister(this);
+ * 4.在onDestroy()反注册,防止内存泄漏 MyEventBus.getDefault().unregister(this);
  * 5.退出App时,调用这里的clear()方法,把缓存数组清空掉
  * <p>
  * 这个类注册在BaseActivity或HomeActivity,一次注册,全部受益
@@ -29,6 +29,7 @@ import java.util.Map;
  * <p>
  * //todo 自定义异常告诉使用前需要注册
  * //todo 遗忘的话看图
+ * //todo 没有处理线程 https://github.com/wzgiceman/Rxbus 使用方式优化成和EventBus一样
  */
 
 public class MyEventBus {

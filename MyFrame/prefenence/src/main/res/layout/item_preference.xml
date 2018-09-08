@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/widget_frame"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:gravity="center_vertical"
+              android:minHeight="?android:attr/listPreferredItemHeight"
+              android:orientation="horizontal"
+              android:paddingRight="?android:attr/scrollbarSize">
+
+    <ImageView
+        android:id="@+id/item_preference_icon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="6dp"
+        android:layout_marginLeft="6dip"
+        android:layout_marginRight="20dip"/>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginLeft="2dip"
+        android:layout_weight="13"
+        android:orientation="vertical"
+        >
+
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:layout_centerVertical="true"
+            android:ellipsize="marquee"
+            android:fadingEdge="horizontal"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_gravity="bottom"
+            android:background="#f00"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginLeft="2dip"
+        android:layout_marginRight="6dip"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <!-- 可以看到我这里选了个自定义选择开关啦 android:button这个属性就是设置选中以及未选中的样式啦，可以自定义，关于这个下面会给出-->
+        <ToggleButton xmlns:android="http://schemas.android.com/apk/res/android"
+                      android:id="@+id/mTogBtn_voice"
+                      android:layout_width="80dp"
+                      android:layout_height="35dp"
+                      android:layout_marginTop="0dp"
+                      android:background="@android:color/transparent"
+                      android:text=" "
+                      android:textOff=""
+                      android:textOn=""/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="14dp"
+            android:background="#f00"/>
+    </LinearLayout>
+
+</LinearLayout>
