@@ -1,5 +1,6 @@
 package xmx.zs.bjframe.activity;
 
+import android.Manifest;
 import android.content.Intent;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -8,12 +9,14 @@ import android.view.animation.AnimationSet;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import xmx.zs.bjframe.R;
 import xmx.zs.bjframe.base.BaseActivity;
 import xmx.zs.bjframe.base.HomeActivity;
 import xmx.zs.bjframe.constant.MyConstant;
 import xmx.zs.bjframe.utils.SPUtils;
+import zs.xmx.permission.annotation.NeedPermission;
 
 /*
  * @创建者     默小铭
@@ -23,7 +26,7 @@ import xmx.zs.bjframe.utils.SPUtils;
  * @内容说明   旋转渐变动画
  * @补充内容
  *
- * ---------------------------------     
+ * ---------------------------------
  * @新增内容
  *
  */
@@ -78,6 +81,15 @@ public class SplashActivity extends BaseActivity {
 
     }
 
+    /**
+     * 申请多个权限
+     */
+    @NeedPermission(value = {Manifest.permission.CALL_PHONE, Manifest.permission.CAMERA}, requestCode = 200)
+    private void callPhone() {
+        Toast.makeText(this, "电话,相机权限通过", Toast.LENGTH_SHORT).show();
+    }
+
+
     @Override
     protected void initEvent() {
         as.setAnimationListener(new AnimationListener() {
@@ -106,6 +118,7 @@ public class SplashActivity extends BaseActivity {
                     startActivity(home);
                     finish();
                 } else {
+
                     //进入设置向导页面
                     Intent guid = new Intent(SplashActivity.this, GuideActivity.class);
                     startActivity(guid);

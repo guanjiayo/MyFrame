@@ -30,6 +30,8 @@ import java.util.Map;
  * //todo 自定义异常告诉使用前需要注册
  * //todo 遗忘的话看图
  * //todo 没有处理线程 https://github.com/wzgiceman/Rxbus 使用方式优化成和EventBus一样
+ *
+ * //todo 这个库简单使用还是可以的,但实际开发还是使用EventBus
  */
 
 public class MyEventBus {

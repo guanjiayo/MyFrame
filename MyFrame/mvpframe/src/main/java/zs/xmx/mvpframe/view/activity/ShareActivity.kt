@@ -2,6 +2,7 @@ package zs.xmx.mvpframe.view.activity
 
 import android.content.Intent
 import android.view.View
+import com.tencent.mm.opensdk.modelmsg.SendMessageToWX.Req.WXSceneTimeline
 
 import zs.xmx.mvpframe.R
 import zs.xmx.mvpframe.base.BaseActivity
@@ -35,7 +36,8 @@ class ShareActivity : BaseActivity() {
     override fun onClick(v: View) {
         when (v.id) {
             R.id.btn_qq_share -> TencentRequest.getInstance().shareUrlToQQ(this)
-            R.id.btn_wechat_share -> WeChatRequest.getInstance().pay(this, "")
+
+            R.id.btn_wechat_share -> WeChatRequest.getInstance().shareText(WXSceneTimeline)
         }
     }
 

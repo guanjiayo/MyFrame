@@ -20,34 +20,21 @@ class RegisterActivity : BaseActivity() {
         findViewById<View>(R.id.btn_regiest).setOnClickListener(this)
     }
 
+    override fun initEvent() {
+        //RxBus绑定BasePresenter
+        RxBus_todo.getDefault().register(mRegisterPresenter)
+    }
+
     override fun onClick(v: View) {
         when (v.id) {
             R.id.btn_regiest -> {
-                //todo 传参
                 val params = HashMap<String, Any>()
                 params["key"] = MyConstant.MOB_KEY
                 params["username"] = et_userName.text.toString()
                 params["password"] = et_pwd.text.toString()
-                mRegisterPresenter.loadDataFromNet(params)
+                mRegisterPresenter.loadDataFromNet(MyConstant.REGIESTER, params)
             }
         }
-    }
-
-    override fun initEvent() {
-        //new RegisterPresenter(this).fetch();
-        //RxBus注册(类似EventBus)
-        //RxBus_todo.getDefault().register(mRegisterPresenter)
-        RxBus_todo.getDefault().register(mRegisterPresenter)
-        //mPresenter = new RegisterPresenter(this);
-
-    }
-
-
-    override fun onDestroy() {
-        super.onDestroy()
-        //RxBus取消注册(类似EventBus)
-        //RxBus_todo.getDefault().unRegister(mRegisterPresenter)
-        RxBus_todo.getDefault().unRegister(mRegisterPresenter)
     }
 
 
@@ -55,6 +42,12 @@ class RegisterActivity : BaseActivity() {
         Logger.e(TAG, result.toString())
         showToast(result.toString())
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        //RxBus 反注册
+        RxBus_todo.getDefault().unRegister(mRegisterPresenter)
     }
 
 }

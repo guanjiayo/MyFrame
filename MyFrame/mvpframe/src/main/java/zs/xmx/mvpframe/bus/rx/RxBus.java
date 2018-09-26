@@ -21,6 +21,7 @@ import io.reactivex.processors.PublishProcessor;
  *
  * 使用说明:  看RxUse.md文档
  *
+ * //todo 实际开发还是使用RXBus官方那个
  *
  */
 public final class RxBus {

@@ -22,14 +22,16 @@ public class BasePresenterModule {
         mView = view;
     }
 
-    @Provides
-    public RegisterPresenter provideRegisterPresenter() {
-        return new RegisterPresenter(mView);
-    }
 
     @Provides
     public LoginPresenter provideLoginPresenter() {
         return new LoginPresenter(mView);
     }
+
+    @Provides
+    public RegisterPresenter provideRegisterPresenter() {
+        return new RegisterPresenter(mView);
+    }
+
 
 }

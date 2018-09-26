@@ -8,7 +8,7 @@
               android:orientation="vertical"
     >
 
-    <android.support.v4.view.ViewPager
+    <zs.xmx.mvpframe.weight.NoScrollViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -29,13 +29,12 @@
         android:layout_weight="1"
         android:visibility="gone"/>
 
-    <!--todo 用第三方库-->
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/navigation"
+    <!--todo 后期自己自定义一个,扩展性更高的-->
+    <com.ashokvarma.bottomnavigation.BottomNavigationBar
+        android:id="@+id/bottom_navigation_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?android:attr/windowBackground"
-        app:menu="@menu/navigation"/>
+        android:background="?android:attr/windowBackground"/>
 
 
 </LinearLayout>

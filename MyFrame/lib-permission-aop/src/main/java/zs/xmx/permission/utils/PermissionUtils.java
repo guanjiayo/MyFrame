@@ -19,6 +19,7 @@ import zs.xmx.permission.bean.DenyBean;
 
 /**
  * 权限工具类
+ * //todo 单个权限被拒绝有问题
  */
 
 public class PermissionUtils {
@@ -149,7 +150,7 @@ public class PermissionUtils {
                         //解析注解上对应的信息
                         DenyBean bean = new DenyBean();
                         bean.setDenyList(denyList);
-                        method.invoke(object, denyList);
+                        method.invoke(object, bean);
                     }
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();

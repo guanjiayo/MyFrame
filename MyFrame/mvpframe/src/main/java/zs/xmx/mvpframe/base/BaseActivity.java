@@ -61,6 +61,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
      * -------------Dagger 注入的Presenter-------start------
      **/
     //注入注册页面的Presenter
+
     @Inject
     public RegisterPresenter mRegisterPresenter;
 
@@ -125,6 +126,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
      */
     protected abstract int setContentViewId();
 
+
     /**
      * 让子类覆盖此方法来完成页面的初始化
      * <p>
@@ -147,7 +149,6 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
      * 如果使用了View注解框架,可以不重写
      */
     protected void initEvent() {
-
     }
 
     /**
@@ -192,7 +193,6 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         super.onDestroy();
         // 注销广播
         unregisterReceiver(mMyReceiver);
-
     }
 
     /**

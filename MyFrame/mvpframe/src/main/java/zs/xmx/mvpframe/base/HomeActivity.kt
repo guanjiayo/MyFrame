@@ -1,13 +1,16 @@
 package zs.xmx.mvpframe.base
 
 import android.graphics.Color
-import android.support.design.widget.BottomNavigationView.OnNavigationItemSelectedListener
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v7.widget.Toolbar
+import android.view.Gravity
 import android.view.View
+import com.ashokvarma.bottomnavigation.BottomNavigationBar
+import com.ashokvarma.bottomnavigation.BottomNavigationItem
+import com.ashokvarma.bottomnavigation.ShapeBadgeItem
+import com.ashokvarma.bottomnavigation.TextBadgeItem
 import kotlinx.android.synthetic.main.activity_home.*
-
 import zs.xmx.mvpframe.R
 import zs.xmx.mvpframe.adapter.HomeVPAdapter
 import zs.xmx.mvpframe.utils.factory.FragmentFactory
@@ -25,13 +28,14 @@ import zs.xmx.mvpframe.utils.factory.FragmentFactory
  * @本类功能  这个框架的首页使用ViewPager+fragment懒加载
  *
  * ---------------------------------
- * @新增内容
+ * @新增内容  todo 这里快速开发先用这个第三方库,后面自定义一个扩展性更好的,现在这个部分场景不灵活(如虎牙,QQ会动的效果)
  *
  */
 class HomeActivity : BaseActivity() {
 
     private var fragmentManager: FragmentManager? = null
     private var mToolbar: Toolbar? = null
+
     private val titleId = intArrayOf(R.string.MainFragment, R.string.TwoFragment,
             R.string.ThreeFragment, R.string.FourFragment, R.string.FiveFragment)
     private val fragments = arrayListOf<Fragment>()
@@ -50,12 +54,75 @@ class HomeActivity : BaseActivity() {
         mToolbar!!.subtitle = "Subtitle"
         mToolbar!!.setSubtitleTextColor(Color.rgb(0, 30, 0))
 
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        initBottomNavigationBar()
+
         //initFragment()
         initViewPager()
     }
 
+    /**
+     * BottomNavigationBar配置
+     */
+    private fun initBottomNavigationBar() {
+        bottom_navigation_bar.setTabSelectedListener(onTabSelectedListener)
+
+        //首页Item
+        val homeItem = BottomNavigationItem(R.drawable.ic_home_black_24dp, R.string.title_home)
+                .setActiveColorResource(R.color.colorAccent)//选中的颜色
+                .setInActiveColorResource(R.color.colorPrimary)//未选中的颜色
+        bottom_navigation_bar.addItem(homeItem)
+
+        //秀场Item
+        val showItem = BottomNavigationItem(R.drawable.ic_dashboard_black_24dp, R.string.title_show)
+                .setActiveColorResource(R.color.blue)
+        bottom_navigation_bar.addItem(showItem)
+
+        //发现Item
+        val findItem = BottomNavigationItem(R.drawable.ic_notifications_black_24dp, R.string.title_find)
+                .setActiveColorResource(R.color.orange)
+        /**
+         * 初始化ShapeBadgeItem
+         */
+        val shapeBadgeItem = ShapeBadgeItem()
+        shapeBadgeItem
+                .setShape(ShapeBadgeItem.SHAPE_OVAL)
+                .setShapeColorResource(R.color.orange)
+                .setGravity(Gravity.TOP or Gravity.END)
+                .setHideOnSelect(true)
+        findItem.setBadgeItem(shapeBadgeItem)
+        bottom_navigation_bar.addItem(findItem)
+
+        //购物车Item
+        val shopItem = BottomNavigationItem(R.drawable.ic_home_black_24dp, R.string.title_shop)
+                .setActiveColorResource(R.color.brown)
+        /**
+         * 初始化TextBadgeItem
+         */
+        val numberBadgeItem = TextBadgeItem()
+        numberBadgeItem.setBorderWidth(4)
+                .setBackgroundColorResource(R.color.material_blue_grey_900)
+                .setText("0")
+                .setHideOnSelect(true)
+
+        shopItem.setBadgeItem(numberBadgeItem)
+        bottom_navigation_bar.addItem(shopItem)
+
+        //我的Item
+        val meItem = BottomNavigationItem(R.drawable.ic_home_black_24dp, R.string.title_me)
+                .setActiveColorResource(R.color.teal)
+        bottom_navigation_bar.addItem(meItem)
+
+        bottom_navigation_bar
+                .setMode(BottomNavigationBar.MODE_FIXED) //
+                //.setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_RIPPLE)
+                .initialise()
+
+
+    }
+
+
     private fun initViewPager() {
+
         for (i in titleId.indices) {
             fragments.add(FragmentFactory.createFragment(i)!!)
         }
@@ -65,46 +132,6 @@ class HomeActivity : BaseActivity() {
          *  ViewPager就不存在预加载的情况了
          */
         viewPager.offscreenPageLimit = titleId.size
-    }
-
-    private val mOnNavigationItemSelectedListener = OnNavigationItemSelectedListener { item ->
-        when (item.itemId) {
-            R.id.navigation_home -> {
-                viewPager.currentItem = 0
-                //todo 切换到mainFragment
-                showToast("home")
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_show -> {
-                viewPager.currentItem = 1
-                //todo
-                showToast("show")
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_find -> {
-                viewPager.currentItem = 2
-                //todo
-                showToast("find")
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_shop -> {
-                viewPager.currentItem = 3
-                //todo
-                showToast("shop")
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_me -> {
-                viewPager.currentItem = 4
-
-                //todo
-                showToast("me")
-                return@OnNavigationItemSelectedListener true
-            }
-
-        }
-
-        false
-
     }
 
 
@@ -160,6 +187,41 @@ class HomeActivity : BaseActivity() {
      */
     override fun initEvent() {
 
+
+    }
+
+    private val onTabSelectedListener = object : BottomNavigationBar.OnTabSelectedListener {
+        override fun onTabSelected(position: Int) {
+            //未选中->选中
+            viewPager.currentItem = position
+            when (position) {
+                0 -> {
+                    showToast("home")
+                }
+                1 -> {
+                    showToast("show")
+                }
+                2 -> {
+                    showToast("find")
+                }
+                3 -> {
+                    showToast("shop")
+                }
+                4 -> {
+                    showToast("me")
+                }
+            }
+
+        }
+
+        override fun onTabUnselected(position: Int) {
+            //选中->未选中
+        }
+
+        override fun onTabReselected(position: Int) {
+            //选中->选中
+
+        }
     }
 
     override fun onClick(v: View) {

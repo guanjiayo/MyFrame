@@ -3,6 +3,7 @@ package zs.xmx.permission.demo;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +19,11 @@ import zs.xmx.permission.annotation.PermissionDenied;
 import zs.xmx.permission.bean.DenyBean;
 import zs.xmx.permission.utils.SettingUtils;
 
+/**
+ * 准备工作:(配置aspectjx)
+ * 1.在Project配置classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.1'
+ * 2.在app的moudle配置apply plugin: 'android-aspectjx'
+ */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
@@ -42,17 +48,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            //            case R.id.btn1_act:
-            //                callMap();
-            //                break;
-            //            case R.id.btn2_act:
-            //                callPhone();
-            //                break;
-            //            case R.id.btn_service:
-            //                Intent intent = new Intent(this, PermissionService.class);
-            //                startService(intent);
-            //                break;
+        int i = view.getId();
+        if (i == R.id.btn1_act) {
+            callMap();
+
+        } else if (i == R.id.btn2_act) {
+            callPhone();
+
+        } else if (i == R.id.btn_service) {
+            Intent intent = new Intent(this, PermissionService.class);
+            startService(intent);
 
         }
     }
