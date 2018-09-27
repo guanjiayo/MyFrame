@@ -18,3 +18,5 @@
 #### 仿写EventBus(1.RxBus 2.反射实现EventBus)
 
 > **实际开发最好还是优先使用ViewModel > EventBus > 官方写的那个RxBus**
+
+#### LazyViewPager+LazyFragment完美解决预加载问题

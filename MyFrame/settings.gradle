@@ -1,3 +1,11 @@
-include  ':base-adapter-library', ':expand_edittext', ':bjframe', ':prefenence', ':label_demo', ':zhnews', ':mvcframe', ':mvpframe',
-        ':lib-permission-aop'
+include  ':base-adapter-library',
+        ':expand_edittext',
+        ':bjframe',
+        ':prefenence',
+        ':label_demo',
+        ':zhnews',
+        ':mvcframe',
+        ':mvpframe',
+        ':lib-permission-aop',
+        ':lib-lazy-vp'
 

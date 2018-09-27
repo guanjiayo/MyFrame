@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/bjframe/bjframe.iml" filepath="$PROJECT_DIR$/bjframe/bjframe.iml" />
       <module fileurl="file://$PROJECT_DIR$/expand_edittext/expand_edittext.iml" filepath="$PROJECT_DIR$/expand_edittext/expand_edittext.iml" />
       <module fileurl="file://$PROJECT_DIR$/label_demo/label_demo.iml" filepath="$PROJECT_DIR$/label_demo/label_demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lib-lazy-vp/lib-lazy-vp.iml" filepath="$PROJECT_DIR$/lib-lazy-vp/lib-lazy-vp.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib-permission-aop/lib-permission-aop.iml" filepath="$PROJECT_DIR$/lib-permission-aop/lib-permission-aop.iml" />
       <module fileurl="file://$PROJECT_DIR$/mvcframe/mvcframe.iml" filepath="$PROJECT_DIR$/mvcframe/mvcframe.iml" />
       <module fileurl="file://$PROJECT_DIR$/mvpframe/mvpframe.iml" filepath="$PROJECT_DIR$/mvpframe/mvpframe.iml" />
