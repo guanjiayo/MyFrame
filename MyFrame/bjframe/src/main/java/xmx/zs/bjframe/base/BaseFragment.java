@@ -1,11 +1,12 @@
 package xmx.zs.bjframe.base;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 /*
  * @创建者     默小铭
@@ -15,7 +16,7 @@ import android.view.ViewGroup;
  * @内容说明
  * @补充内容  1.添加/移除Fragment
  *
- * ---------------------------------     
+ * ---------------------------------
  * @新增内容
  *
  */

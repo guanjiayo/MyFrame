@@ -1,10 +1,12 @@
 package xmx.zs.bjframe.base;
 
 import android.graphics.Color;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.widget.Toolbar;
+
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 
 import xmx.zs.bjframe.R;
@@ -30,11 +32,11 @@ import xmx.zs.bjframe.utils.ActivityManager;
  */
 public class HomeActivity extends BaseActivity {
     //点击时间
-    private   long                                   mPreClickTime;
-    protected android.support.v4.app.FragmentManager fragmentManager;
-    private   Toolbar                                mToolbar;
-    public    DrawerLayout                           mDrawerLayout;
-    public    ActionBarDrawerToggle                  actionBarDrawerToggle;
+    private   long                  mPreClickTime;
+    protected FragmentManager       fragmentManager;
+    private   Toolbar               mToolbar;
+    public    DrawerLayout          mDrawerLayout;
+    public    ActionBarDrawerToggle actionBarDrawerToggle;
 
     @Override
     protected int getContentViewId() {

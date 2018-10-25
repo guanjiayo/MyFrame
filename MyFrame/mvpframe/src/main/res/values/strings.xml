@@ -12,8 +12,8 @@
     <string name="title_me">我的</string>
     <string name="MainFragment">MainFragment</string>
     <string name="TwoFragment">TwoFragment</string>
-    <string name="ThreeFragment">MainFragment</string>
-    <string name="FourFragment">ThreeFragment</string>
+    <string name="ThreeFragment">ThreeFragment</string>
+    <string name="FourFragment">FourFragment</string>
     <string name="FiveFragment">FiveFragment</string>
 
 </resources>

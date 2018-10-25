@@ -2,12 +2,14 @@ package xmx.zs.newsframe.activity.base;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.design.widget.NavigationView;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.widget.Toolbar;
+import com.google.android.material.navigation.NavigationView;
+
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -35,12 +37,12 @@ import xmx.zs.newsframe.utils.ActivityManager;
  */
 public class HomeActivity extends BaseActivity {
     //点击时间
-    private   long                                   mPreClickTime;
-    protected android.support.v4.app.FragmentManager fragmentManager;
-    private   Toolbar                                mToolbar;
-    public    DrawerLayout                           mDrawerLayout;
-    public    ActionBarDrawerToggle                  actionBarDrawerToggle;
-    private   NavigationView                         mNavigationView;
+    private   long                  mPreClickTime;
+    protected FragmentManager       fragmentManager;
+    private   Toolbar               mToolbar;
+    public    DrawerLayout          mDrawerLayout;
+    public    ActionBarDrawerToggle actionBarDrawerToggle;
+    private   NavigationView        mNavigationView;
 
     @Override
 

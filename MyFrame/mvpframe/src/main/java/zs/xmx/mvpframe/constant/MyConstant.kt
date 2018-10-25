@@ -8,15 +8,19 @@ package zs.xmx.mvpframe.constant
  * @内容说明
  *
  */
-object MyConstant {
-    /**Mob AppKey**/
-    const val MOB_KEY = "278bf0b47cf94"
-    /**域名 */
-    //const val BASE_URL = "http://gank.io/api/"
-    const val BASE_URL = "https://apicloud.mob.com/"
+class MyConstant {
 
-    //用户登录注册相关
-    const val LOGIN = "/user/login"
-    const val REGIESTER = "/user/rigister"
+    companion object {
+        /**Mob AppKey**/
+        const val MOB_KEY = "278bf0b47cf94"
+        /**域名 */
+        //const val BASE_URL = "http://gank.io/api/"
+        const val BASE_URL = "https://apicloud.mob.com/"
+
+        //用户登录注册相关
+        const val LOGIN = "/user/login"
+        const val REGISTER = "/user/rigister"
+    }
+
 
 }

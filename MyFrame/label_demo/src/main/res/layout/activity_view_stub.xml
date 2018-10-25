@@ -7,7 +7,7 @@
     tools:context="zs.xmx.ViewStubActivity">
 
     <!--android:inflateId：重写ViewStub的父布局控件的Id-->
-    <!--android:layout：设置ViewStub被inflate的布局-->
+    <!--android:layouts：设置ViewStub被inflate的布局-->
     <ViewStub
         android:id="@+id/network_error_layout"
         android:layout_width="match_parent"

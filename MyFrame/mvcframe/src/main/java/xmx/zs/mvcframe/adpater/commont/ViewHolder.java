@@ -39,7 +39,7 @@ import android.widget.TextView;
 /**
  * //        ViewHolder mHolder = null;
  * //        if (convertView == null) {
- * //            convertView = mInflater.inflate(R.layout.item_main, parent, false);
+ * //            convertView = mInflater.inflate(R.layouts.item_main, parent, false);
  * //            mHolder = new ViewHolder();
  * //           .....
  * //

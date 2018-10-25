@@ -15,8 +15,9 @@ package zs.xmx.mvpframe.utils.factory
  */
 
 
+import androidx.fragment.app.Fragment
+import zs.xmx.mvpframe.ui.fragment.MainFragment
 import zs.xmx.mvpframe.view.fragment.*
-import zs.xmx.mvpframe.base.BaseFragment
 
 object FragmentFactory {
     private var mMainFragment: MainFragment? = null
@@ -31,8 +32,8 @@ object FragmentFactory {
      * @param position
      * @return
      */
-    fun createFragment(position: Int): BaseFragment? {
-        var mBaseFragment: BaseFragment? = null
+    fun createFragment(position: Int): Fragment? {
+        var mBaseFragment: Fragment? = null
         when (position) {
             0 -> {
                 if (mMainFragment == null) {
@@ -68,5 +69,7 @@ object FragmentFactory {
 
         return mBaseFragment
     }
+
+
 
 }

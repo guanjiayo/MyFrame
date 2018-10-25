@@ -1,7 +1,7 @@
 package xmx.zs.bjframe.fragment;
 
 import android.content.Intent;
-import android.support.v4.view.GravityCompat;
+import androidx.core.view.GravityCompat;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;

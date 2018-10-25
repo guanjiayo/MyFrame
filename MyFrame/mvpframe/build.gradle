@@ -14,7 +14,7 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled = true
 
@@ -25,6 +25,21 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+
+    sourceSets {
+        main {
+            //layout目录下文件分包
+            res.srcDirs =
+                    [
+                            'src/main/res/layouts/activity',
+                            'src/main/res/layouts/fragment',
+                            'src/main/res/layouts/view',
+                            'src/main/res'
+                    ]
+        }
+    }
+
 }
 
 MobSDK {
@@ -37,43 +52,69 @@ MobSDK {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:multidex:1.0.3'
-    implementation 'com.android.support.constraint:constraint-layout:2.0.0-alpha2'
-    implementation 'com.android.support:design:28.0.0-rc02'
-    implementation 'com.android.support:support-v4:28.0.0-rc02'
-    implementation 'com.android.support:support-vector-drawable:28.0.0-rc02'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation 'com.android.support:appcompat-v7:28.0.0-rc02'
+    //dex分包
+    implementation 'androidx.multidex:multidex:2.0.0'
+    //约束布局
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
+    //android design库相关
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.vectordrawable:vectordrawable:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    //android test库相关
+    androidTestImplementation 'androidx.test:runner:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
     testImplementation 'junit:junit:4.12'
+    //async 网络库
     implementation 'com.loopj.android:android-async-http:1.4.9'
+    //glide 图片库
     implementation 'com.github.bumptech.glide:glide:4.7.1'
+    //picasso 图片库
     implementation 'com.squareup.picasso:picasso:2.71828'
     //Logger
     implementation 'com.orhanobut:logger:1.15'
-    //微信支付
+    //微信库
     implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
-    //dagger2
-    implementation 'com.google.dagger:dagger:2.15'
-    //使用apt插件为dagger2生成代码
-    kapt 'com.google.dagger:dagger-compiler:2.15'
+    //dagger2  升级后有问题,暂时用2.11版本
+    implementation 'com.google.dagger:dagger:2.11'
+    kapt 'com.google.dagger:dagger-compiler:2.11'
     //底部导航栏
     implementation 'com.ashokvarma.android:bottom-navigation-bar:2.0.5'
-    //Retrofit2
+    //Retrofit
     implementation rootProject.ext.dependencies["retrofit"]
     implementation rootProject.ext.dependencies["retrofit-gson"]
     implementation rootProject.ext.dependencies["gson"]
-    //okHttp相关
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.5.0'
-    //OrmLite 数据库工具
     implementation 'com.squareup.retrofit2:converter-scalars:2.4.0'
+    //okHttp相关
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.6.0'
+    //RxJava and RxKotlin and RxAndroid
     implementation 'io.reactivex.rxjava2:rxjava:2.2.0'
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    implementation 'io.reactivex.rxjava2:rxkotlin:2.0.2'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
-    implementation project(':lib-permission-aop')
+    //RxLifecycle 先用1.0版本的,后面看情况升级
+    implementation 'com.trello:rxlifecycle-components:1.0'
+    implementation 'com.trello:rxlifecycle-kotlin:1.0'
+    //RxBus 事件总线
+    implementation 'com.hwangjr.rxbus:rxbus:1.0.6'
+    //kotlin 相关
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    //ali库
     implementation files('libs/alipaySdk-20180601.jar')
+    //腾讯库
     implementation files('libs/open_sdk_r6008_lite.jar')
-    implementation 'com.android.support:design:28.0.0-rc02'
+    //VLayout 增强版LayoutManager
+    implementation 'com.alibaba.android:vlayout:1.0.3@aar'
+    //别人封装的BaseAdapter
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
+    //跑马灯
+    implementation 'com.sunfusheng:marqueeview:1.3.1'
+    //轮播图
+    implementation 'com.youth.banner:banner:1.4.10'
+
+    //-------------------------------------分割线-----------------------------------------
+
+    //本地开发库
     implementation project(':lib-lazy-vp')
+    api project(':lib-permission-aop')
 }

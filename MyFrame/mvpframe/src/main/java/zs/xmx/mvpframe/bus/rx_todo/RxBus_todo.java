@@ -1,6 +1,6 @@
 package zs.xmx.mvpframe.bus.rx_todo;
 
-import android.support.v4.util.ArrayMap;
+import androidx.collection.ArrayMap;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -21,7 +21,7 @@ import io.reactivex.subjects.Subject;
  * @本类描述	  RxBus_todo 数据总线
  * @内容说明   todo 有需要的话添加背压模式
  *            todo 线程切换不方便(看老师写的处理一下?)
- *            todo 不知道是那个观察者发送过来的(后面加标签处理)
+ *            todo 目前这个不知道是那个观察者发送过来的(后面加标签处理)
  *
  * 使用 下面三个方法一般写在同一类中
  *      在要接受数据的方法添加@RxSubscribe注解
@@ -32,7 +32,7 @@ import io.reactivex.subjects.Subject;
  *      因为现在没标签区分,直接post javaBean
  *      RxBus_todo.getDefault().post()
  *
- *  todo https://github.com/AndroidKnife/RxBus 注解优化
+ *  todo https://github.com/AndroidKnife/RxBus 注解优化(官方)
  *  todo https://github.com/wzgiceman/Rxbus 使用方式优化成和EventBus一样
  *  todo 目前直接使用rx那个文件里的
  *

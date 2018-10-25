@@ -3,7 +3,7 @@ package xmx.zs.newsframe.activity.base;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import xmx.zs.newsframe.utils.ActivityManager;
 import xmx.zs.newsframe.utils.Logger;

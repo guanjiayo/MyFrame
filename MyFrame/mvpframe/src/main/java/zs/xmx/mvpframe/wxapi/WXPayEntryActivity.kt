@@ -16,7 +16,7 @@ import org.json.JSONException
 import org.json.JSONObject
 
 import zs.xmx.mvpframe.R
-import zs.xmx.mvpframe.base.BaseActivity
+import zs.xmx.mvpframe.base.activity.BaseActivity
 import zs.xmx.mvpframe.isolation.proxy.net.HttpRequestPresenter
 import zs.xmx.mvpframe.isolation.proxy.net.ICallback
 
@@ -32,6 +32,7 @@ import zs.xmx.mvpframe.isolation.proxy.net.ICallback
  *
  */
 class WXPayEntryActivity : BaseActivity(), IWXAPIEventHandler {
+
 
     private var api: IWXAPI? = null
 

@@ -1,7 +1,7 @@
 package xmx.zs.mvcframe.base.glide.cache;
 
 import android.os.Build;
-import android.support.v4.util.LruCache;
+import androidx.collection.LruCache;
 
 import xmx.zs.mvcframe.base.glide.cache.recycle.Resource;
 

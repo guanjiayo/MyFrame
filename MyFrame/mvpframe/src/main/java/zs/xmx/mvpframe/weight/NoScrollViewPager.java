@@ -15,6 +15,7 @@ import zs.xmx.lazylibrary.LazyViewPager;
  *             事件的处理   onTouchEvent()  return false;不处理事件
  *             不要去拦截事件  onIntercepTouchEvent() 处理拦截事件    return false 不拦截
  *
+ * todo 改成Kotlin语法会找不到,后面测试解决下
  */
 public class NoScrollViewPager extends LazyViewPager {
 

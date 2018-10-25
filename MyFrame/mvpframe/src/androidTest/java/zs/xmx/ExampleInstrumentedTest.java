@@ -1,8 +1,8 @@
 package zs.xmx;
 
 import android.content.Context;
-import android.support.test.InstrumentationRegistry;
-import android.support.test.runner.AndroidJUnit4;
+import androidx.test.InstrumentationRegistry;
+import androidx.test.runner.AndroidJUnit4;
 
 import com.j256.ormlite.dao.Dao;
 
@@ -15,7 +15,7 @@ import zs.xmx.model.dao.DBHelper;
 import zs.xmx.model.domian.bean.AddressBean;
 import zs.xmx.model.domian.bean.UserBean;
 
-import static android.support.test.InstrumentationRegistry.getContext;
+import static androidx.test.InstrumentationRegistry.getContext;
 import static org.junit.Assert.assertEquals;
 
 /**

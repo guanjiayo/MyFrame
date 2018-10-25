@@ -1,10 +1,10 @@
 package zs.xmx.mvpframe
 
-import android.app.Application
 import com.mob.MobSDK
 import com.orhanobut.logger.Logger
 import okhttp3.Interceptor
 import okhttp3.logging.HttpLoggingInterceptor
+import zs.xmx.mvpframe.base.BaseApplication
 import zs.xmx.mvpframe.constant.MyConstant
 import zs.xmx.mvpframe.interceptor.net.HttpLoggerInterceptor
 import zs.xmx.mvpframe.interceptor.net.HttpUrlInterceptor
@@ -25,7 +25,7 @@ import zs.xmx.mvpframe.utils.init.ProjectInit
  *
  */
 
-class MyApplication : Application() {
+class MyApplication : BaseApplication() {
 
     override fun onCreate() {
         super.onCreate()

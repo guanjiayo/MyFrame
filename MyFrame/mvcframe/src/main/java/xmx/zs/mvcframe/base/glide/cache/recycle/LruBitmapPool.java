@@ -2,7 +2,7 @@ package xmx.zs.mvcframe.base.glide.cache.recycle;
 
 import android.graphics.Bitmap;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.RequiresApi;
 import android.util.LruCache;
 
 import java.util.NavigableMap;

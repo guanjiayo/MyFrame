@@ -1,7 +1,7 @@
 package xmx.zs.mvcframe.view.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 
 import java.util.HashMap;

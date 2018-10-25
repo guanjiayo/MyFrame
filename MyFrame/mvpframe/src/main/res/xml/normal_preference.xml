@@ -4,7 +4,7 @@
         android:title="PreferenceCategory"
         >
         <!--android:widgetLayout  修改Preference里的子布局-->
-        <!--android:layout 修改Preference的布局-->
+        <!--android:layouts 修改Preference的布局-->
         <Preference
             android:icon="@mipmap/ic_launcher_round"
             android:summary="Open otherActivity (Preference)"

@@ -1,10 +1,10 @@
 package xmx.zs.mvcframe.base;
 
 import android.graphics.Color;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 
 import xmx.zs.mvcframe.R;
@@ -28,9 +28,9 @@ import xmx.zs.mvcframe.utils.FragmentFactory;
  */
 public class HomeActivity extends BaseActivity {
 
-    protected android.support.v4.app.FragmentManager fragmentManager;
-    private   Toolbar                                mToolbar;
-    private int[] titleId = {R.string.MainFragment};
+    protected FragmentManager fragmentManager;
+    private   Toolbar         mToolbar;
+    private   int[]           titleId = {R.string.MainFragment};
 
 
     @Override

@@ -1,11 +1,13 @@
 package zs.xmx.mvpframe.utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
+import android.os.Build;
 import android.telephony.TelephonyManager;
 
 import java.io.IOException;
@@ -48,8 +50,8 @@ import java.util.concurrent.Future;
  * 注意添加权限:
  * <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
  * <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
- * ---------------------------------------------     
- * @更新时间   2016/10/1 
+ * ---------------------------------------------
+ * @更新时间   2016/10/1
  * @更新说明
  */
 public class NetWorkUtils {
@@ -75,8 +77,9 @@ public class NetWorkUtils {
      *
      * @param context 上下文
      */
+    @SuppressLint("ObsoleteSdkInt")
     public static void openWirelessSettings(Context context) {
-        if (android.os.Build.VERSION.SDK_INT > 10) {
+        if (android.os.Build.VERSION.SDK_INT > Build.VERSION_CODES.GINGERBREAD_MR1) {
             context.startActivity(new Intent(android.provider.Settings.ACTION_SETTINGS));
         } else {
             context.startActivity(new Intent(android.provider.Settings.ACTION_WIRELESS_SETTINGS));

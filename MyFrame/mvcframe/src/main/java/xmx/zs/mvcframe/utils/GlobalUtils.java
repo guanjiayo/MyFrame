@@ -2,7 +2,7 @@ package xmx.zs.mvcframe.utils;
 
 import android.annotation.SuppressLint;
 import android.app.Application;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 /*
  * @创建者     默小铭

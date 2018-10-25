@@ -52,7 +52,7 @@ public class SecurityCodeUtils {
     //验证码的默认宽高
     private static final int DEFAULT_WIDTH = 100, DEFAULT_HEIGHT = 40;
 
-    //settings decided by the layout xml
+    //settings decided by the layouts xml
     //canvas width and height
     private int width = DEFAULT_WIDTH, height = DEFAULT_HEIGHT;
 

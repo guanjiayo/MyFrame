@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.activity.RegisterActivity">
+
+    <zs.xmx.mvpframe.weight.HeaderBar
+        style="@style/MatchWrap"
+        app:isShowBack="true"
+        app:titleText="注册"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_userName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_userName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="用户名"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="密码"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <zs.xmx.mvpframe.weight.VerifyButton
+        android:id="@+id/mVerifyCodeBtn"
+        android:textColor="@color/common_blue"
+        android:background="@null"
+        android:text="获取验证码"
+        style="@style/WrapWrap"
+        android:layout_gravity="center_horizontal"/>
+
+    <Button
+        android:id="@+id/btn_regiest"
+        style="@style/WrapWrap"
+        android:layout_gravity="center_horizontal"
+        android:text="注册"
+        />
+</LinearLayout>

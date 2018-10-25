@@ -26,14 +26,14 @@
         android:supportsRtl="true"
         android:theme="@style/Splash_Theme"
         tools:replace="android:name">
-        <activity android:name=".view.activity.SplashActivity">
+        <activity android:name=".ui.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".view.activity.LoginActivity">
+        <activity android:name=".ui.activity.LoginActivity">
         </activity>
 
 
@@ -82,11 +82,10 @@
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="behind"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
-        <activity android:name=".base.HomeActivity"/>
-        <activity android:name=".view.activity.RegisterActivity"/>
+        <activity android:name=".base.activity.HomeActivity"/>
+        <activity android:name=".ui.activity.RegisterActivity"/>
         <activity android:name=".view.activity.ShareActivity"/>
         <activity android:name=".view.activity.PayActivity"/>
-        <activity android:name=".view.activity.SetingActivity"/>
         <activity android:name=".view.activity.SettingActivity"/>
         <!-- 腾讯 end -->
 

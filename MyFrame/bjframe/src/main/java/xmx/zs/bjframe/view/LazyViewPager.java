@@ -27,14 +27,15 @@ import android.graphics.drawable.Drawable;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.SystemClock;
-import android.support.v4.os.ParcelableCompat;
-import android.support.v4.os.ParcelableCompatCreatorCallbacks;
-import android.support.v4.view.MotionEventCompat;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.VelocityTrackerCompat;
-import android.support.v4.view.ViewCompat;
-import android.support.v4.view.ViewConfigurationCompat;
-import android.support.v4.widget.EdgeEffectCompat;
+import androidx.core.os.ParcelableCompat;
+import androidx.core.os.ParcelableCompatCreatorCallbacks;
+import androidx.core.view.MotionEventCompat;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+import androidx.core.view.VelocityTrackerCompat;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.ViewConfigurationCompat;
+import androidx.core.widget.EdgeEffectCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.FocusFinder;
@@ -53,7 +54,7 @@ import android.widget.Scroller;
 /**
  * Layout manager that allows the user to flip left and right
  * through pages of data.  You supply an implementation of a
- * {@link android.support.v4.view.PagerAdapter} to generate the pages that the view shows.
+ * {@link PagerAdapter} to generate the pages that the view shows.
  * <p>
  * <p>Note this class is currently under early design and
  * development.  The API will likely change in later updates of
@@ -201,17 +202,17 @@ public class LazyViewPager extends ViewGroup {
          * or when it is fully stopped/idle.
          *
          * @param state The new scroll state.
-         * @see android.support.v4.view.ViewPager#SCROLL_STATE_IDLE
-         * @see android.support.v4.view.ViewPager#SCROLL_STATE_DRAGGING
-         * @see android.support.v4.view.ViewPager#SCROLL_STATE_SETTLING
+         * @see ViewPager#SCROLL_STATE_IDLE
+         * @see ViewPager#SCROLL_STATE_DRAGGING
+         * @see ViewPager#SCROLL_STATE_SETTLING
          */
         public void onPageScrollStateChanged(int state);
     }
 
     /**
-     * Simple implementation of the {@link android.support.v4.view.LazyViewPager.OnPageChangeListener} interface with stub
+     * Simple implementation of the {@link androidx.core.view.LazyViewPager.OnPageChangeListener} interface with stub
      * implementations of each method. Extend this if you do not intend to override
-     * every method of {@link android.support.v4.view.LazyViewPager.OnPageChangeListener}.
+     * every method of {@link androidx.core.view.LazyViewPager.OnPageChangeListener}.
      */
     public static class SimpleOnPageChangeListener implements OnPageChangeListener {
         @Override
@@ -310,7 +311,7 @@ public class LazyViewPager extends ViewGroup {
 
     /**
      * Set the currently selected page. If the ViewPager has already been through its first
-     * layout there will be a smooth animated transition between the current item and the
+     * layouts there will be a smooth animated transition between the current item and the
      * specified item.
      *
      * @param item Item index to select
@@ -405,7 +406,7 @@ public class LazyViewPager extends ViewGroup {
      * of pages you will need to support or have lazy-loading mechanisms in place
      * on your pages, tweaking this setting can have benefits in perceived smoothness
      * of paging animations and interaction. If you have a small number of pages (3-4)
-     * that you can keep active all at once, less time will be spent in layout for
+     * that you can keep active all at once, less time will be spent in layouts for
      * newly created view subtrees as the user pages back and forth.</p>
      * <p>
      * <p>You should keep this limit low, especially if your pages have complex layouts.
@@ -848,10 +849,10 @@ public class LazyViewPager extends ViewGroup {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         // For simple implementation, or internal size is always 0.
-        // We depend on the container to specify the layout size of
+        // We depend on the container to specify the layouts size of
         // our view.  We can't really know what it is since we will be
         // adding and removing different arbitrary views and do not
-        // want the layout to change as this happens.
+        // want the layouts to change as this happens.
         setMeasuredDimension(getDefaultSize(0, widthMeasureSpec),
                 getDefaultSize(0, heightMeasureSpec));
 
